@@ -73,9 +73,9 @@ namespace Erronka_Interfazak
             // lblsartu
             // 
             lblsartu.AutoSize = true;
-            lblsartu.BackColor = Color.White;
+            lblsartu.BackColor = SystemColors.Highlight;
             lblsartu.Font = new Font("Segoe UI", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblsartu.ForeColor = SystemColors.Highlight;
+            lblsartu.ForeColor = Color.White;
             lblsartu.Location = new Point(245, 50);
             lblsartu.Name = "lblsartu";
             lblsartu.Size = new Size(266, 45);
@@ -107,6 +107,7 @@ namespace Erronka_Interfazak
             // 
             lblMarka.AutoSize = true;
             lblMarka.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMarka.ForeColor = Color.Black;
             lblMarka.Location = new Point(20, 23);
             lblMarka.Name = "lblMarka";
             lblMarka.Size = new Size(65, 25);
@@ -125,6 +126,7 @@ namespace Erronka_Interfazak
             // 
             lblKokalekua.AutoSize = true;
             lblKokalekua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblKokalekua.ForeColor = Color.Black;
             lblKokalekua.Location = new Point(20, 68);
             lblKokalekua.Name = "lblKokalekua";
             lblKokalekua.Size = new Size(96, 25);
@@ -143,6 +145,7 @@ namespace Erronka_Interfazak
             // 
             lblErosteData.AutoSize = true;
             lblErosteData.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblErosteData.ForeColor = Color.Black;
             lblErosteData.Location = new Point(20, 113);
             lblErosteData.Name = "lblErosteData";
             lblErosteData.Size = new Size(107, 25);
@@ -162,6 +165,7 @@ namespace Erronka_Interfazak
             // 
             lblGailuMota.AutoSize = true;
             lblGailuMota.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGailuMota.ForeColor = Color.Black;
             lblGailuMota.Location = new Point(20, 158);
             lblGailuMota.Name = "lblGailuMota";
             lblGailuMota.Size = new Size(102, 25);
@@ -172,6 +176,7 @@ namespace Erronka_Interfazak
             // 
             rbOrdenagailua.AutoSize = true;
             rbOrdenagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rbOrdenagailua.ForeColor = Color.Black;
             rbOrdenagailua.Location = new Point(180, 155);
             rbOrdenagailua.Name = "rbOrdenagailua";
             rbOrdenagailua.Size = new Size(139, 29);
@@ -184,6 +189,7 @@ namespace Erronka_Interfazak
             // 
             rbInprimagailua.AutoSize = true;
             rbInprimagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rbInprimagailua.ForeColor = Color.Black;
             rbInprimagailua.Location = new Point(345, 155);
             rbInprimagailua.Name = "rbInprimagailua";
             rbInprimagailua.Size = new Size(141, 29);
@@ -212,6 +218,7 @@ namespace Erronka_Interfazak
             // 
             lblRam.AutoSize = true;
             lblRam.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRam.ForeColor = Color.Black;
             lblRam.Location = new Point(10, 13);
             lblRam.Name = "lblRam";
             lblRam.Size = new Size(55, 25);
@@ -230,6 +237,7 @@ namespace Erronka_Interfazak
             // 
             lblRom.AutoSize = true;
             lblRom.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblRom.ForeColor = Color.Black;
             lblRom.Location = new Point(10, 53);
             lblRom.Name = "lblRom";
             lblRom.Size = new Size(57, 25);
@@ -248,6 +256,7 @@ namespace Erronka_Interfazak
             // 
             lblCpu.AutoSize = true;
             lblCpu.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblCpu.ForeColor = Color.Black;
             lblCpu.Location = new Point(10, 93);
             lblCpu.Name = "lblCpu";
             lblCpu.Size = new Size(49, 25);

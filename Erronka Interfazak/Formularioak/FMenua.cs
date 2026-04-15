@@ -106,5 +106,35 @@ namespace Erronka_Interfazak
             panmenua.Controls.Add(f);
             f.Show();
         }
+
+        private void ezabatuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panmenua.Controls.Clear();
+            FEzabatu f = new FEzabatu();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
+        }
+
+        private void konponduToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panmenua.Controls.Clear();
+            FKonpondu f = new FKonpondu();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
+        }
+
+        private void konpondutaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panmenua.Controls.Clear();
+            FKonponduta f = new FKonponduta();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
+        }
     }
 }

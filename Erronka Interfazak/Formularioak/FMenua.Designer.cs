@@ -119,15 +119,15 @@ namespace Erronka_Interfazak
             picargazkia.SizeMode = PictureBoxSizeMode.Zoom;
             picargazkia.TabIndex = 0;
             picargazkia.TabStop = false;
-            //
+            // 
             // panLinea1
-            //
+            // 
             panLinea1.BackColor = Color.FromArgb(100, 175, 255);
             panLinea1.Location = new Point(16, 144);
             panLinea1.Name = "panLinea1";
             panLinea1.Size = new Size(318, 2);
             panLinea1.TabIndex = 10;
-            //
+            // 
             // panPerfilFondo
             // 
             panPerfilFondo.BackColor = SystemColors.Highlight;
@@ -135,7 +135,7 @@ namespace Erronka_Interfazak
             panPerfilFondo.Controls.Add(lblerabiltzailepertsonala);
             panPerfilFondo.Controls.Add(lblpostua);
             panPerfilFondo.Controls.Add(lblpostuaerabiltzailea);
-             panPerfilFondo.Location = new Point(10, 154);
+            panPerfilFondo.Location = new Point(10, 154);
             panPerfilFondo.Name = "panPerfilFondo";
             panPerfilFondo.Size = new Size(330, 195);
             panPerfilFondo.TabIndex = 11;
@@ -243,7 +243,7 @@ namespace Erronka_Interfazak
             // 
             ikusiToolStripMenuItem1.Image = (Image)resources.GetObject("ikusiToolStripMenuItem1.Image");
             ikusiToolStripMenuItem1.Name = "ikusiToolStripMenuItem1";
-            ikusiToolStripMenuItem1.Size = new Size(224, 42);
+            ikusiToolStripMenuItem1.Size = new Size(204, 42);
             ikusiToolStripMenuItem1.Text = "Ikusi";
             ikusiToolStripMenuItem1.Click += ikusiToolStripMenuItem1_Click;
             // 
@@ -251,7 +251,7 @@ namespace Erronka_Interfazak
             // 
             gehituToolStripMenuItem.Image = (Image)resources.GetObject("gehituToolStripMenuItem.Image");
             gehituToolStripMenuItem.Name = "gehituToolStripMenuItem";
-            gehituToolStripMenuItem.Size = new Size(224, 42);
+            gehituToolStripMenuItem.Size = new Size(204, 42);
             gehituToolStripMenuItem.Text = "Gehitu";
             gehituToolStripMenuItem.Click += gehituToolStripMenuItem_Click;
             // 
@@ -259,7 +259,7 @@ namespace Erronka_Interfazak
             // 
             aldatuToolStripMenuItem.Image = (Image)resources.GetObject("aldatuToolStripMenuItem.Image");
             aldatuToolStripMenuItem.Name = "aldatuToolStripMenuItem";
-            aldatuToolStripMenuItem.Size = new Size(224, 42);
+            aldatuToolStripMenuItem.Size = new Size(204, 42);
             aldatuToolStripMenuItem.Text = "Aldatu";
             aldatuToolStripMenuItem.Click += aldatuToolStripMenuItem_Click;
             // 
@@ -267,8 +267,9 @@ namespace Erronka_Interfazak
             // 
             ezabatuToolStripMenuItem.Image = (Image)resources.GetObject("ezabatuToolStripMenuItem.Image");
             ezabatuToolStripMenuItem.Name = "ezabatuToolStripMenuItem";
-            ezabatuToolStripMenuItem.Size = new Size(224, 42);
+            ezabatuToolStripMenuItem.Size = new Size(204, 42);
             ezabatuToolStripMenuItem.Text = "Ezabatu";
+            ezabatuToolStripMenuItem.Click += ezabatuToolStripMenuItem_Click;
             // 
             // aRAZOAToolStripMenuItem
             // 
@@ -293,6 +294,7 @@ namespace Erronka_Interfazak
             konponduToolStripMenuItem.Name = "konponduToolStripMenuItem";
             konponduToolStripMenuItem.Size = new Size(296, 42);
             konponduToolStripMenuItem.Text = "Konpondu";
+            konponduToolStripMenuItem.Click += konponduToolStripMenuItem_Click;
             // 
             // konpondutaToolStripMenuItem
             // 
@@ -300,6 +302,7 @@ namespace Erronka_Interfazak
             konpondutaToolStripMenuItem.Name = "konpondutaToolStripMenuItem";
             konpondutaToolStripMenuItem.Size = new Size(296, 42);
             konpondutaToolStripMenuItem.Text = "Konponduta";
+            konpondutaToolStripMenuItem.Click += konpondutaToolStripMenuItem_Click;
             // 
             // ezabatuakIkusiToolStripMenuItem
             // 
