@@ -37,6 +37,8 @@ namespace Erronka_Interfazak
             txtKokalekua = new TextBox();
             lblErosteData = new Label();
             dtpErosteData = new DateTimePicker();
+            lblMintegia = new Label();
+            lblMintegiaBalio = new Label();
             lblGailuMota = new Label();
             rbOrdenagailua = new RadioButton();
             rbInprimagailua = new RadioButton();
@@ -92,6 +94,8 @@ namespace Erronka_Interfazak
             panDatuak.Controls.Add(txtKokalekua);
             panDatuak.Controls.Add(lblErosteData);
             panDatuak.Controls.Add(dtpErosteData);
+            panDatuak.Controls.Add(lblMintegia);
+            panDatuak.Controls.Add(lblMintegiaBalio);
             panDatuak.Controls.Add(lblGailuMota);
             panDatuak.Controls.Add(rbOrdenagailua);
             panDatuak.Controls.Add(rbInprimagailua);
@@ -100,8 +104,9 @@ namespace Erronka_Interfazak
             panDatuak.Controls.Add(butsartu);
             panDatuak.Location = new Point(110, 112);
             panDatuak.Name = "panDatuak";
-            panDatuak.Size = new Size(580, 425);
+            panDatuak.Size = new Size(580, 470);
             panDatuak.TabIndex = 1;
+            panDatuak.Paint += panDatuak_Paint;
             // 
             // lblMarka
             // 
@@ -161,15 +166,36 @@ namespace Erronka_Interfazak
             dtpErosteData.Size = new Size(375, 31);
             dtpErosteData.TabIndex = 5;
             // 
+            // lblMintegia
+            // 
+            lblMintegia.AutoSize = true;
+            lblMintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblMintegia.ForeColor = Color.Black;
+            lblMintegia.Location = new Point(20, 158);
+            lblMintegia.Name = "lblMintegia";
+            lblMintegia.Size = new Size(85, 25);
+            lblMintegia.TabIndex = 7;
+            lblMintegia.Text = "Mintegia:";
+            // 
+            // lblMintegiaBalio
+            // 
+            lblMintegiaBalio.AutoSize = true;
+            lblMintegiaBalio.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMintegiaBalio.ForeColor = Color.White;
+            lblMintegiaBalio.Location = new Point(180, 158);
+            lblMintegiaBalio.Name = "lblMintegiaBalio";
+            lblMintegiaBalio.Size = new Size(0, 25);
+            lblMintegiaBalio.TabIndex = 8;
+            // 
             // lblGailuMota
             // 
             lblGailuMota.AutoSize = true;
             lblGailuMota.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGailuMota.ForeColor = Color.Black;
-            lblGailuMota.Location = new Point(20, 158);
+            lblGailuMota.Location = new Point(20, 203);
             lblGailuMota.Name = "lblGailuMota";
             lblGailuMota.Size = new Size(102, 25);
-            lblGailuMota.TabIndex = 8;
+            lblGailuMota.TabIndex = 9;
             lblGailuMota.Text = "Gailu Mota:";
             // 
             // rbOrdenagailua
@@ -177,10 +203,10 @@ namespace Erronka_Interfazak
             rbOrdenagailua.AutoSize = true;
             rbOrdenagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbOrdenagailua.ForeColor = Color.Black;
-            rbOrdenagailua.Location = new Point(180, 155);
+            rbOrdenagailua.Location = new Point(180, 200);
             rbOrdenagailua.Name = "rbOrdenagailua";
             rbOrdenagailua.Size = new Size(139, 29);
-            rbOrdenagailua.TabIndex = 9;
+            rbOrdenagailua.TabIndex = 10;
             rbOrdenagailua.Text = "Ordenagailua";
             rbOrdenagailua.UseVisualStyleBackColor = true;
             rbOrdenagailua.CheckedChanged += rbOrdenagailua_CheckedChanged;
@@ -190,10 +216,10 @@ namespace Erronka_Interfazak
             rbInprimagailua.AutoSize = true;
             rbInprimagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbInprimagailua.ForeColor = Color.Black;
-            rbInprimagailua.Location = new Point(345, 155);
+            rbInprimagailua.Location = new Point(345, 200);
             rbInprimagailua.Name = "rbInprimagailua";
             rbInprimagailua.Size = new Size(141, 29);
-            rbInprimagailua.TabIndex = 10;
+            rbInprimagailua.TabIndex = 11;
             rbInprimagailua.Text = "Inprimagailua";
             rbInprimagailua.UseVisualStyleBackColor = true;
             rbInprimagailua.CheckedChanged += rbInprimagailua_CheckedChanged;
@@ -208,10 +234,10 @@ namespace Erronka_Interfazak
             panOrdenagailua.Controls.Add(txtRom);
             panOrdenagailua.Controls.Add(lblCpu);
             panOrdenagailua.Controls.Add(txtCpu);
-            panOrdenagailua.Location = new Point(20, 197);
+            panOrdenagailua.Location = new Point(20, 242);
             panOrdenagailua.Name = "panOrdenagailua";
             panOrdenagailua.Size = new Size(540, 140);
-            panOrdenagailua.TabIndex = 11;
+            panOrdenagailua.TabIndex = 12;
             panOrdenagailua.Visible = false;
             // 
             // lblRam
@@ -278,10 +304,10 @@ namespace Erronka_Interfazak
             panInprimagailua.Controls.Add(lblKoloretakua);
             panInprimagailua.Controls.Add(rbKoloretakuaBai);
             panInprimagailua.Controls.Add(rbKoloretakuaEz);
-            panInprimagailua.Location = new Point(20, 197);
+            panInprimagailua.Location = new Point(20, 242);
             panInprimagailua.Name = "panInprimagailua";
             panInprimagailua.Size = new Size(540, 65);
-            panInprimagailua.TabIndex = 12;
+            panInprimagailua.TabIndex = 13;
             panInprimagailua.Visible = false;
             // 
             // lblKoloretakua
@@ -321,7 +347,7 @@ namespace Erronka_Interfazak
             butsartu.BackColor = Color.White;
             butsartu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             butsartu.ForeColor = SystemColors.Highlight;
-            butsartu.Location = new Point(105, 363);
+            butsartu.Location = new Point(105, 408);
             butsartu.Name = "butsartu";
             butsartu.Size = new Size(370, 50);
             butsartu.TabIndex = 20;
@@ -355,6 +381,8 @@ namespace Erronka_Interfazak
         private Panel panela;
         private Label lblsartu;
         private Panel panDatuak;
+        private Label lblMintegia;
+        private Label lblMintegiaBalio;
         private Label lblMarka;
         private TextBox txtMarka;
         private Label lblKokalekua;

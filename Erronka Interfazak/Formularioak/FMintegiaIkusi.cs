@@ -34,9 +34,10 @@ namespace Erronka_Interfazak
 
                 while (reader.Read())
                 {
-                    idak.Add(Convert.ToInt32(reader["ID_MINTEGIA"]));
+                    int id = Convert.ToInt32(reader["ID_MINTEGIA"]);
                     string izena = reader["IZENA"].ToString()!;
-                    zerrenda.Add(new Mintegia(izena));
+                    idak.Add(id);
+                    zerrenda.Add(new Mintegia(id, izena));
                 }
 
                 dgvMintegiak.DataSource = ZerrendaDataTable(zerrenda, idak);

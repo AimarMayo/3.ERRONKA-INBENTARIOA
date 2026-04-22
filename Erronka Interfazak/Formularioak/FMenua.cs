@@ -2,6 +2,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
@@ -13,10 +14,43 @@ namespace Erronka_Interfazak
             this.Load += FMenua_Load;
         }
 
+        private void KargatuErabiltzaileaDatuak()
+        {
+            try
+            {
+                DBKonexioa.konektatu();
+
+                string query = @"SELECT e.IZENA, e.ROLA, m.IZENA AS MINTEGIA_IZENA
+                                 FROM ERABILTZAILEA e
+                                 LEFT JOIN MINTEGIA m ON m.ID_MINTEGIA = e.ID_MINTEGIA
+                                 WHERE e.EMAILA = @emaila";
+
+                using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
+                cmd.Parameters.AddWithValue("@emaila", Sesioa.Emaila);
+                using MySqlDataReader reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    lblerabiltzailepertsonala.Text = reader["IZENA"].ToString();
+                    lblpostuaerabiltzailea.Text = reader["ROLA"].ToString();
+                    int mintegiaOrdinal = reader.GetOrdinal("MINTEGIA_IZENA");
+                    lblmintegiaerabiltzailea.Text = reader.IsDBNull(mintegiaOrdinal)
+                        ? ""
+                        : reader["MINTEGIA_IZENA"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errorea datuak kargatzean: " + ex.Message, "Errorea",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // ── Bordes redondeados ────────────────────────────────────────────────
 
         private void FMenua_Load(object? sender, EventArgs e)
         {
+            KargatuErabiltzaileaDatuak();
             EzarriErtzBiribila(panPerfilFondo, 14);
             EzarriErtzBiribila(pictureBox1, 12);
             EzarriErtzBiribila(picargazkia, 10);
@@ -212,6 +246,11 @@ namespace Erronka_Interfazak
             f.Dock = DockStyle.Fill;
             panmenua.Controls.Add(f);
             f.Show();
+        }
+
+        private void ezabatuakIkusiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

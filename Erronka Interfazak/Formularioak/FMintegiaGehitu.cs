@@ -1,12 +1,11 @@
-using MySqlConnector;
+using System;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
     public partial class FMintegiaGehitu : Form
     {
-        private const string ConnectionString =
-            "Server=localhost;Database=erronka3;User ID=root;Password=;";
-
         public FMintegiaGehitu()
         {
             InitializeComponent();
@@ -36,14 +35,28 @@ namespace Erronka_Interfazak
                 return;
             }
 
+            Mintegia mintegia = new Mintegia(0, txtIzena.Text.Trim());
+
             try
             {
-                using MySqlConnection con = new MySqlConnection(ConnectionString);
-                con.Open();
+                DBKonexioa.konektatu();
 
-                using MySqlCommand cmd = new MySqlCommand(
-                    "INSERT INTO mintegia (izena) VALUES (@izena)", con);
-                cmd.Parameters.AddWithValue("@izena", txtIzena.Text.Trim());
+                string queryBilatu = "SELECT COUNT(*) FROM MINTEGIA WHERE LOWER(IZENA) = LOWER(@izena)";
+                using (MySqlCommand cmdBilatu = new MySqlCommand(queryBilatu, DBKonexioa.con))
+                {
+                    cmdBilatu.Parameters.AddWithValue("@izena", mintegia.Izena);
+                    int kopurua = Convert.ToInt32(cmdBilatu.ExecuteScalar());
+                    if (kopurua > 0)
+                    {
+                        MessageBox.Show($"'{mintegia.Izena}' izeneko mintegia bat dagoeneko existitzen da.", "Abisua",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
+                string query = "INSERT INTO MINTEGIA (IZENA) VALUES (@izena)";
+                using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
+                cmd.Parameters.AddWithValue("@izena", mintegia.Izena);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Mintegia behar bezala gorde da!", "Ondo",

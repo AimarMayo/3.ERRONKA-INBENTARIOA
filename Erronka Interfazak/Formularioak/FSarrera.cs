@@ -25,7 +25,7 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
-                string query = "SELECT EMAILA, PASAHITZA FROM ERABILTZAILEA WHERE EMAILA = @emaila";
+                string query = "SELECT EMAILA, PASAHITZA, ID_MINTEGIA FROM ERABILTZAILEA WHERE EMAILA = @emaila";
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 cmd.Parameters.AddWithValue("@emaila", erabiltzailea.Emaila);
                 using MySqlDataReader reader = cmd.ExecuteReader();
@@ -45,6 +45,12 @@ namespace Erronka_Interfazak
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                Sesioa.Emaila = erabiltzailea.Emaila;
+                int mintegiaOrdinal = reader.GetOrdinal("ID_MINTEGIA");
+                Sesioa.MintegiaId = reader.IsDBNull(mintegiaOrdinal)
+                    ? 0
+                    : Convert.ToInt32(reader["ID_MINTEGIA"]);
 
                 reader.Close();
 

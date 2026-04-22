@@ -26,7 +26,10 @@ namespace Erronka_Interfazak
 
                 List<Gailua> zerrenda = new List<Gailua>();
 
-                string query = "SELECT * FROM GAILUA";
+                string query = @"SELECT g.*, o.RAM, o.ROM, o.CPU, i.KOLORETAKOA
+                                 FROM GAILUA g
+                                 LEFT JOIN ORDENAGAILUA o ON o.ID_GAILUA = g.ID_GAILUA
+                                 LEFT JOIN INPRIMAGAILUA i ON i.ID_GAILUA = g.ID_GAILUA";
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 using MySqlDataReader reader = cmd.ExecuteReader();
 

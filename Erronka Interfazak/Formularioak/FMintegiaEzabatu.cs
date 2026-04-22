@@ -1,23 +1,24 @@
-using System.Drawing.Drawing2D;
-using MySqlConnector;
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
     public partial class FMintegiaEzabatu : Form
     {
-        private const string ConnectionString =
-            "Server=localhost;Database=erronka3;User ID=root;Password=;";
-
-        private int? _mintegiaId = null;
+        private int _idMintegia = -1;
 
         public FMintegiaEzabatu()
         {
             InitializeComponent();
 
             panela.Resize += (s, e) => ErdiratuKontrolak();
-            this.Load += (s, e) => ErdiratuKontrolak();
-            panDatuak.Paint += panDatuak_Paint;
-            panDatuak.Resize += (s, e) => AplikatuBiribilak();
+            this.Load += (s, e) =>
+            {
+                ErdiratuKontrolak();
+                butezabatu.Enabled = false;
+            };
         }
 
         private void ErdiratuKontrolak()
@@ -30,131 +31,85 @@ namespace Erronka_Interfazak
 
             lblizenburua.Left = (w - lblizenburua.Width) / 2;
             lblizenburua.Top = panDatuak.Top - lblizenburua.Height - 20;
-
-            AplikatuBiribilak();
-            AplikatuLabelBiribilak();
-        }
-
-        private void AplikatuLabelBiribilak()
-        {
-            int r = 10;
-            int w = lblizenburua.Width;
-            int h = lblizenburua.Height;
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, r, r, 180, 90);
-            path.AddArc(w - r, 0, r, r, 270, 90);
-            path.AddArc(w - r, h - r, r, r, 0, 90);
-            path.AddArc(0, h - r, r, r, 90, 90);
-            path.CloseAllFigures();
-            lblizenburua.Region = new Region(path);
-        }
-
-        private void AplikatuBiribilak()
-        {
-            int r = 10;
-            int w = panDatuak.Width;
-            int h = panDatuak.Height;
-            GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, r, r, 180, 90);
-            path.AddArc(w - r, 0, r, r, 270, 90);
-            path.AddArc(w - r, h - r, r, r, 0, 90);
-            path.AddArc(0, h - r, r, r, 90, 90);
-            path.CloseAllFigures();
-            panDatuak.Region = new Region(path);
-        }
-
-        private void panDatuak_Paint(object? sender, PaintEventArgs e)
-        {
-            int r = 10;
-            int w = panDatuak.Width - 1;
-            int h = panDatuak.Height - 1;
-            using GraphicsPath path = new GraphicsPath();
-            path.AddArc(0, 0, r, r, 180, 90);
-            path.AddArc(w - r, 0, r, r, 270, 90);
-            path.AddArc(w - r, h - r, r, r, 0, 90);
-            path.AddArc(0, h - r, r, r, 90, 90);
-            path.CloseAllFigures();
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-            e.Graphics.DrawPath(new Pen(SystemColors.Highlight, 2), path);
         }
 
         private void butbilatu_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtid.Text) || !int.TryParse(txtid.Text, out int id))
+            if (!int.TryParse(txtid.Text.Trim(), out int id))
             {
                 lblemaitza.Text = "Mesedez, sartu ID zenbaki bat.";
                 lblemaitza.ForeColor = Color.Red;
-                _mintegiaId = null;
+                butezabatu.Enabled = false;
+                _idMintegia = -1;
                 return;
             }
 
             try
             {
-                using MySqlConnection con = new MySqlConnection(ConnectionString);
-                con.Open();
+                DBKonexioa.konektatu();
 
-                using MySqlCommand cmd = new MySqlCommand(
-                    "SELECT id, izena FROM mintegia WHERE id = @id", con);
+                string query = "SELECT ID_MINTEGIA, IZENA FROM MINTEGIA WHERE ID_MINTEGIA = @id";
+                using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 cmd.Parameters.AddWithValue("@id", id);
+                using MySqlDataReader reader = cmd.ExecuteReader();
 
-                using MySqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    _mintegiaId = dr.GetInt32("id");
-                    lblemaitza.Text = $"Mintegia: {dr.GetString("izena")}";
-                    lblemaitza.ForeColor = Color.Black;
-                }
-                else
+                if (!reader.Read())
                 {
                     lblemaitza.Text = "Ez da mintegiarik aurkitu ID horrekin.";
                     lblemaitza.ForeColor = Color.Red;
-                    _mintegiaId = null;
+                    butezabatu.Enabled = false;
+                    _idMintegia = -1;
+                    return;
                 }
+
+                Mintegia mintegia = new Mintegia(
+                    reader.GetInt32("ID_MINTEGIA"),
+                    reader.GetString("IZENA"));
+
+                _idMintegia = mintegia.Id;
+                lblemaitza.Text = $"ID: {mintegia.Id}  |  {mintegia.Izena}";
+                lblemaitza.ForeColor = Color.Black;
+                butezabatu.Enabled = true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errorea bilaketean:\n{ex.Message}", "Errorea",
+                MessageBox.Show("Errorea bilaketean: " + ex.Message, "Errorea",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void butezabatu_Click(object sender, EventArgs e)
         {
-            if (_mintegiaId == null)
-            {
-                MessageBox.Show("Lehenik mintegia bilatu behar duzu.", "Abisua",
-                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+            if (_idMintegia == -1) return;
 
             DialogResult erantzuna = MessageBox.Show(
-                "Ziur zaude mintegia ezabatu nahi duzula?",
+                $"Ziur zaude {_idMintegia} ID-ko mintegia ezabatu nahi duzula?",
                 "Berrespena",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                MessageBoxIcon.Warning);
 
             if (erantzuna != DialogResult.Yes) return;
 
             try
             {
-                using MySqlConnection con = new MySqlConnection(ConnectionString);
-                con.Open();
+                DBKonexioa.konektatu();
 
-                using MySqlCommand cmd = new MySqlCommand(
-                    "DELETE FROM mintegia WHERE id = @id", con);
-                cmd.Parameters.AddWithValue("@id", _mintegiaId.Value);
+                string query = "DELETE FROM MINTEGIA WHERE ID_MINTEGIA = @id";
+                using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
+                cmd.Parameters.AddWithValue("@id", _idMintegia);
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Mintegia behar bezala ezabatu da.", "Ondo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtid.Clear();
-                lblemaitza.Text = string.Empty;
-                _mintegiaId = null;
+                lblemaitza.Text = "";
+                butezabatu.Enabled = false;
+                _idMintegia = -1;
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Errorea mintegia ezabatzean:\n{ex.Message}", "Errorea",
+                MessageBox.Show("Errorea ezabatzean: " + ex.Message, "Errorea",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }

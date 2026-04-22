@@ -1,28 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Erronka_Interfazak
 {
     public class Gailua
     {
+        private int id;
         private string marka, kokalekua, egoera;
-        private DateTime ErosteData;
+        private DateTime erosteData;
 
+        public int Id { get => id; set => id = value; }
         public string Marka { get => marka; set => marka = value; }
         public string Kokalekua { get => kokalekua; set => kokalekua = value; }
         public string Egoera { get => egoera; set => egoera = value; }
-        public DateTime ErosteData1 { get => ErosteData; set => ErosteData = value; }
+        public DateTime ErosteData1 { get => erosteData; set => erosteData = value; }
 
-        public Gailua(string m, string k, string e, DateTime ed)
+        public Gailua(int id, string marka, string kokalekua, string egoera, DateTime erosteData)
         {
-            marka = m;
-            kokalekua = k;
-            egoera = e;
-            ErosteData = ed;
+            this.id = id;
+            this.marka = marka;
+            this.kokalekua = kokalekua;
+            this.egoera = egoera;
+            this.erosteData = erosteData;
         }
-        Gailua() { }
+
+        public Gailua(string marka, string kokalekua, string egoera, DateTime erosteData)
+        {
+            id = 0;
+            this.marka = marka;
+            this.kokalekua = kokalekua;
+            this.egoera = egoera;
+            this.erosteData = erosteData;
+        }
     }
 }

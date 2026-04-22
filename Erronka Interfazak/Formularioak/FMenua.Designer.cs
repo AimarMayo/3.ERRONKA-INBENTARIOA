@@ -39,6 +39,8 @@ namespace Erronka_Interfazak
             lblerabiltzailepertsonala = new Label();
             lblpostua = new Label();
             lblpostuaerabiltzailea = new Label();
+            lblmintegia = new Label();
+            lblmintegiaerabiltzailea = new Label();
             panLinea2 = new Panel();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
@@ -135,9 +137,11 @@ namespace Erronka_Interfazak
             panPerfilFondo.Controls.Add(lblerabiltzailepertsonala);
             panPerfilFondo.Controls.Add(lblpostua);
             panPerfilFondo.Controls.Add(lblpostuaerabiltzailea);
+            panPerfilFondo.Controls.Add(lblmintegia);
+            panPerfilFondo.Controls.Add(lblmintegiaerabiltzailea);
             panPerfilFondo.Location = new Point(10, 154);
             panPerfilFondo.Name = "panPerfilFondo";
-            panPerfilFondo.Size = new Size(330, 195);
+            panPerfilFondo.Size = new Size(330, 225);
             panPerfilFondo.TabIndex = 11;
             // 
             // lblerabiltzailea
@@ -185,10 +189,31 @@ namespace Erronka_Interfazak
             lblpostuaerabiltzailea.TabIndex = 6;
             lblpostuaerabiltzailea.Text = "Garatzailea";
             // 
+            // lblmintegia
+            // 
+            lblmintegia.AutoSize = true;
+            lblmintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblmintegia.ForeColor = Color.FromArgb(200, 230, 255);
+            lblmintegia.Location = new Point(18, 186);
+            lblmintegia.Name = "lblmintegia";
+            lblmintegia.Size = new Size(93, 25);
+            lblmintegia.TabIndex = 7;
+            lblmintegia.Text = "Mintegia:";
+            // 
+            // lblmintegiaerabiltzailea
+            // 
+            lblmintegiaerabiltzailea.AutoSize = true;
+            lblmintegiaerabiltzailea.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblmintegiaerabiltzailea.ForeColor = Color.White;
+            lblmintegiaerabiltzailea.Location = new Point(120, 186);
+            lblmintegiaerabiltzailea.Name = "lblmintegiaerabiltzailea";
+            lblmintegiaerabiltzailea.Size = new Size(0, 25);
+            lblmintegiaerabiltzailea.TabIndex = 8;
+            // 
             // panLinea2
             // 
             panLinea2.BackColor = Color.FromArgb(100, 175, 255);
-            panLinea2.Location = new Point(16, 360);
+            panLinea2.Location = new Point(16, 390);
             panLinea2.Name = "panLinea2";
             panLinea2.Size = new Size(318, 2);
             panLinea2.TabIndex = 12;
@@ -196,7 +221,7 @@ namespace Erronka_Interfazak
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 374);
+            pictureBox1.Location = new Point(10, 404);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(330, 280);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -311,6 +336,7 @@ namespace Erronka_Interfazak
             ezabatuakIkusiToolStripMenuItem.Name = "ezabatuakIkusiToolStripMenuItem";
             ezabatuakIkusiToolStripMenuItem.Size = new Size(296, 42);
             ezabatuakIkusiToolStripMenuItem.Text = "Ezabatuak Ikusi";
+            ezabatuakIkusiToolStripMenuItem.Click += ezabatuakIkusiToolStripMenuItem_Click;
             // 
             // aDMINISTRARIAToolStripMenuItem
             // 
@@ -447,6 +473,8 @@ namespace Erronka_Interfazak
         private PictureBox          picargazkia;
         private Label               lblerabiltzailepertsonala;
         private Label               lblpostuaerabiltzailea;
+        private Label               lblmintegia;
+        private Label               lblmintegiaerabiltzailea;
         private Panel               panLinea1;
         private Panel               panLinea2;
         private ToolStripMenuItem   irtenSarreraraToolStripMenuItem;

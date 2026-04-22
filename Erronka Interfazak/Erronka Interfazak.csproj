@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Erronka Interfazak\**" />
+    <EmbeddedResource Remove="Erronka Interfazak\**" />
+    <None Remove="Erronka Interfazak\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MySql.Data" Version="9.6.0" />
     <PackageReference Include="MySqlConnector" Version="2.5.0" />
   </ItemGroup>

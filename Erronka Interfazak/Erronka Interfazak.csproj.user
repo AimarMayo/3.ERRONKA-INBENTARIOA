@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Erronka Interfazak\Formularioak\FAldatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FIkusi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FKonpondu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FKonponduta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FLangileaEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FLangileaGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FMenua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FMintegiaEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FMintegiaGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FPasahitza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Erronka Interfazak\Formularioak\FSarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FAldatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FIkusi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FInzidentziak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FKonpondu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FKonponduta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FLangileaEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FLangileaGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FLangileakIkusi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FMenua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FMintegiaEzabatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FMintegiaGehitu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FMintegiaIkusi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FPasahitza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Formularioak\FSarrera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
