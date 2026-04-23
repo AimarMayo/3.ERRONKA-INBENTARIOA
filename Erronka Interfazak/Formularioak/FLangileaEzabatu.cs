@@ -87,11 +87,9 @@ namespace Erronka_Interfazak
         {
             if (_idErabiltzailea == -1) return;
 
-            DialogResult erantzuna = MessageBox.Show(
+            DialogResult erantzuna = Galdera.Galdetu(
                 $"Ziur zaude {_idErabiltzailea} ID-ko langilea ezabatu nahi duzula?",
-                "Berrespena",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning);
+                "Berrespena");
 
             if (erantzuna != DialogResult.Yes) return;
 

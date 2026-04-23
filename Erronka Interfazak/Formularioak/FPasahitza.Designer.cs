@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FPasahitza));
             lblpasahitzaaldatu = new Label();
             lblerabiltzailea = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            label1 = new Label();
+            txtErabiltzaileIzena = new TextBox();
+            txtPasahitzBerria = new TextBox();
+            lblPasahitzBerria = new Label();
             butaldatu = new Button();
             picpasahitza = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)picpasahitza).BeginInit();
@@ -60,32 +60,32 @@
             lblerabiltzailea.TabIndex = 1;
             lblerabiltzailea.Text = "Sartu erabiltzaile izena:";
             // 
-            // textBox1
+            // txtErabiltzaileIzena
             // 
-            textBox1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox1.Location = new Point(122, 138);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(335, 31);
-            textBox1.TabIndex = 2;
+            txtErabiltzaileIzena.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtErabiltzaileIzena.Location = new Point(122, 138);
+            txtErabiltzaileIzena.Name = "txtErabiltzaileIzena";
+            txtErabiltzaileIzena.Size = new Size(335, 31);
+            txtErabiltzaileIzena.TabIndex = 2;
             // 
-            // textBox2
+            // txtPasahitzBerria
             // 
-            textBox2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textBox2.Location = new Point(122, 210);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(335, 31);
-            textBox2.TabIndex = 4;
-            textBox2.TextChanged += textBox2_TextChanged;
+            txtPasahitzBerria.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPasahitzBerria.Location = new Point(122, 210);
+            txtPasahitzBerria.Name = "txtPasahitzBerria";
+            txtPasahitzBerria.Size = new Size(335, 31);
+            txtPasahitzBerria.TabIndex = 4;
+            txtPasahitzBerria.TextChanged += txtPasahitzBerria_TextChanged;
             // 
-            // label1
+            // lblPasahitzBerria
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(122, 182);
-            label1.Name = "label1";
-            label1.Size = new Size(177, 25);
-            label1.TabIndex = 3;
-            label1.Text = "Sartu pasahitz berria:";
+            lblPasahitzBerria.AutoSize = true;
+            lblPasahitzBerria.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblPasahitzBerria.Location = new Point(122, 182);
+            lblPasahitzBerria.Name = "lblPasahitzBerria";
+            lblPasahitzBerria.Size = new Size(177, 25);
+            lblPasahitzBerria.TabIndex = 3;
+            lblPasahitzBerria.Text = "Sartu pasahitz berria:";
             // 
             // butaldatu
             // 
@@ -119,9 +119,9 @@
             ControlBox = false;
             Controls.Add(picpasahitza);
             Controls.Add(butaldatu);
-            Controls.Add(textBox2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
+            Controls.Add(txtPasahitzBerria);
+            Controls.Add(lblPasahitzBerria);
+            Controls.Add(txtErabiltzaileIzena);
             Controls.Add(lblerabiltzailea);
             Controls.Add(lblpasahitzaaldatu);
             FormBorderStyle = FormBorderStyle.None;
@@ -139,9 +139,9 @@
 
         private Label lblpasahitzaaldatu;
         private Label lblerabiltzailea;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Label label1;
+        private TextBox txtErabiltzaileIzena;
+        private TextBox txtPasahitzBerria;
+        private Label lblPasahitzBerria;
         private Button butaldatu;
         private PictureBox picpasahitza;
     }

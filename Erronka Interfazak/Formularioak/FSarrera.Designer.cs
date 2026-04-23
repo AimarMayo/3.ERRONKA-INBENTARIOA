@@ -34,7 +34,7 @@
             txtpasahitza = new TextBox();
             lblpasahitza = new Label();
             txtemaila = new TextBox();
-            label1 = new Label();
+            lblEmaila = new Label();
             lblsaioahasi = new Label();
             pansarrera.SuspendLayout();
             SuspendLayout();
@@ -45,7 +45,7 @@
             pansarrera.Controls.Add(txtpasahitza);
             pansarrera.Controls.Add(lblpasahitza);
             pansarrera.Controls.Add(txtemaila);
-            pansarrera.Controls.Add(label1);
+            pansarrera.Controls.Add(lblEmaila);
             pansarrera.Controls.Add(lblsaioahasi);
             pansarrera.Dock = DockStyle.Fill;
             pansarrera.Location = new Point(0, 0);
@@ -92,15 +92,15 @@
             txtemaila.Size = new Size(370, 31);
             txtemaila.TabIndex = 4;
             // 
-            // label1
+            // lblEmaila
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(190, 106);
-            label1.Name = "label1";
-            label1.Size = new Size(67, 25);
-            label1.TabIndex = 3;
-            label1.Text = "Emaila:";
+            lblEmaila.AutoSize = true;
+            lblEmaila.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblEmaila.Location = new Point(190, 106);
+            lblEmaila.Name = "lblEmaila";
+            lblEmaila.Size = new Size(67, 25);
+            lblEmaila.TabIndex = 3;
+            lblEmaila.Text = "Emaila:";
             // 
             // lblsaioahasi
             // 
@@ -137,7 +137,7 @@
         private TextBox txtpasahitza;
         private Label lblpasahitza;
         private TextBox txtemaila;
-        private Label label1;
+        private Label lblEmaila;
         private Label lblsaioahasi;
         private Button butsartu;
     }

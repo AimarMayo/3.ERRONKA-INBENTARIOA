@@ -3,24 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\fmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\fmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\faldatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\faldatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\fmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\fezabatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\fezabatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\fezabatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\fezabatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\formularioak\\fmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\fmenua.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\erabiltzailea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:erabiltzailea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\faldatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\faldatu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\formularioak\\flangileagehitu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\galdera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:galdera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\formularioak\\flangileagehitu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:formularioak\\flangileagehitu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|c:\\users\\aimar\\desktop\\fp\\erronka 3\\erronka interfazak\\dbkonexioa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D2D5690-AB55-4B9F-8B84-BB27A0616445}|Erronka Interfazak.csproj|solutionrelative:dbkonexioa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -40,62 +48,85 @@
         },
         {
           "DockedWidth": 33,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FMenua.cs",
-              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FMenua.cs",
-              "RelativeDocumentMoniker": "Formularioak\\FMenua.cs",
-              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FMenua.cs",
-              "RelativeToolTip": "Formularioak\\FMenua.cs",
-              "ViewState": "AgIAAOcAAAAAAAAAAAD4v/0AAAAJAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FEzabatu.cs",
+              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FEzabatu.cs",
+              "RelativeDocumentMoniker": "Formularioak\\FEzabatu.cs",
+              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FEzabatu.cs",
+              "RelativeToolTip": "Formularioak\\FEzabatu.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAD4v5YAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:32:42.799Z",
+              "WhenOpened": "2026-04-23T08:15:42.436Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Erabiltzailea.cs",
-              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Erabiltzailea.cs",
-              "RelativeDocumentMoniker": "Erabiltzailea.cs",
-              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Erabiltzailea.cs",
-              "RelativeToolTip": "Erabiltzailea.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCAAAAABAAAAAAAAAA==",
+              "Title": "FEzabatu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FEzabatu.cs",
+              "RelativeDocumentMoniker": "Formularioak\\FEzabatu.cs",
+              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FEzabatu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Formularioak\\FEzabatu.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T10:01:00.287Z",
+              "WhenOpened": "2026-04-23T08:15:41.043Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FAldatu.cs",
+              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FAldatu.cs",
+              "RelativeDocumentMoniker": "Formularioak\\FAldatu.cs",
+              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FAldatu.cs",
+              "RelativeToolTip": "Formularioak\\FAldatu.cs",
+              "ViewState": "AgIAAP0AAAAAAAAAAAD4vxgBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T08:15:13.25Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
+              "Title": "FAldatu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FAldatu.cs",
+              "RelativeDocumentMoniker": "Formularioak\\FAldatu.cs",
+              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FAldatu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Formularioak\\FAldatu.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T08:15:09.832Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Galdera.cs",
+              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Galdera.cs",
+              "RelativeDocumentMoniker": "Galdera.cs",
+              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Galdera.cs",
+              "RelativeToolTip": "Galdera.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:06:55.974Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "FLangileaGehitu.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FLangileaGehitu.cs",
               "RelativeDocumentMoniker": "Formularioak\\FLangileaGehitu.cs",
               "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FLangileaGehitu.cs [Dise\u00F1o]",
               "RelativeToolTip": "Formularioak\\FLangileaGehitu.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T09:57:45.545Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2026-04-22T09:57:45.545Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "DBKonexioa.cs",
-              "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\DBKonexioa.cs",
-              "RelativeDocumentMoniker": "DBKonexioa.cs",
-              "ToolTip": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\DBKonexioa.cs",
-              "RelativeToolTip": "DBKonexioa.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T08:17:59.832Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "FMenua.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Formularioak\\FMenua.cs",
               "RelativeDocumentMoniker": "Formularioak\\FMenua.cs",

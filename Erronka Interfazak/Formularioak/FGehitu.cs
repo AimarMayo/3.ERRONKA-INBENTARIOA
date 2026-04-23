@@ -22,6 +22,18 @@ namespace Erronka_Interfazak
             InitializeComponent();
 
             dtpErosteData.Format = DateTimePickerFormat.Short;
+            butsartu.Enabled = false;
+
+            txtMarka.TextChanged          += (s, e) => EgiaztatuEremuak();
+            txtKokalekua.TextChanged      += (s, e) => EgiaztatuEremuak();
+            cmbMintegia.SelectedIndexChanged += (s, e) => EgiaztatuEremuak();
+            rbOrdenagailua.CheckedChanged += (s, e) => EgiaztatuEremuak();
+            rbInprimagailua.CheckedChanged += (s, e) => EgiaztatuEremuak();
+            txtRam.TextChanged            += (s, e) => EgiaztatuEremuak();
+            txtRom.TextChanged            += (s, e) => EgiaztatuEremuak();
+            txtCpu.TextChanged            += (s, e) => EgiaztatuEremuak();
+            rbKoloretakuaBai.CheckedChanged += (s, e) => EgiaztatuEremuak();
+            rbKoloretakuaEz.CheckedChanged  += (s, e) => EgiaztatuEremuak();
 
             panela.Resize += (s, e) => ErdiratuKontrolak();
             this.Load += (s, e) =>
@@ -36,11 +48,28 @@ namespace Erronka_Interfazak
             try
             {
                 DBKonexioa.konektatu();
-                string query = "SELECT IZENA FROM MINTEGIA WHERE ID_MINTEGIA = @idmintegia";
-                using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
-                cmd.Parameters.AddWithValue("@idmintegia", Sesioa.MintegiaId);
-                object? result = cmd.ExecuteScalar();
-                lblMintegiaBalio.Text = result?.ToString() ?? "";
+
+                if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase))
+                {
+                    lblMintegiaBalio.Visible = false;
+                    cmbMintegia.Visible = true;
+
+                    using MySqlCommand cmd = new MySqlCommand(
+                        "SELECT ID_MINTEGIA, IZENA FROM MINTEGIA ORDER BY IZENA", DBKonexioa.con);
+                    using MySqlDataReader dr = cmd.ExecuteReader();
+                    cmbMintegia.Items.Clear();
+                    while (dr.Read())
+                        cmbMintegia.Items.Add(new Mintegia(dr.GetInt32("ID_MINTEGIA"), dr.GetString("IZENA")));
+                    cmbMintegia.DisplayMember = "Izena";
+                }
+                else
+                {
+                    using MySqlCommand cmd = new MySqlCommand(
+                        "SELECT IZENA FROM MINTEGIA WHERE ID_MINTEGIA = @idmintegia", DBKonexioa.con);
+                    cmd.Parameters.AddWithValue("@idmintegia", Saioa.MintegiaId);
+                    object? result = cmd.ExecuteScalar();
+                    lblMintegiaBalio.Text = result?.ToString() ?? "";
+                }
             }
             catch (Exception ex)
             {
@@ -75,6 +104,13 @@ namespace Erronka_Interfazak
 
         private void butsartu_Click(object sender, EventArgs e)
         {
+            if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase) && cmbMintegia.SelectedIndex == -1)
+            {
+                MessageBox.Show("Mesedez, hautatu mintegia.", "Abisua",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtMarka.Text) ||
                 string.IsNullOrWhiteSpace(txtKokalekua.Text) ||
                 (!rbOrdenagailua.Checked && !rbInprimagailua.Checked))
@@ -122,8 +158,11 @@ namespace Erronka_Interfazak
                 {
                     cmd.Parameters.AddWithValue("@marka", txtMarka.Text.Trim());
                     cmd.Parameters.AddWithValue("@kokalekua", txtKokalekua.Text.Trim());
+                    int idMintegia = Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase)
+                        ? ((Mintegia)cmbMintegia.SelectedItem!).Id
+                        : Saioa.MintegiaId;
                     cmd.Parameters.AddWithValue("@erostedata", dtpErosteData.Value.Date);
-                    cmd.Parameters.AddWithValue("@idmintegia", Sesioa.MintegiaId);
+                    cmd.Parameters.AddWithValue("@idmintegia", idMintegia);
                     idGailua = Convert.ToInt64(cmd.ExecuteScalar());
                 }
 
@@ -180,6 +219,40 @@ namespace Erronka_Interfazak
             {
                 MessageBox.Show("Errorea gailua gordetzean: " + ex.Message, "Errorea",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EgiaztatuEremuak()
+        {
+            bool oinarrizkoak = !string.IsNullOrWhiteSpace(txtMarka.Text) &&
+                                !string.IsNullOrWhiteSpace(txtKokalekua.Text);
+
+            bool mintegia = Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase)
+                ? cmbMintegia.SelectedIndex != -1
+                : true;
+
+            bool mota = rbOrdenagailua.Checked || rbInprimagailua.Checked;
+
+            bool ordenagailuaDatuak = true;
+            if (rbOrdenagailua.Checked)
+                ordenagailuaDatuak = !string.IsNullOrWhiteSpace(txtRam.Text) &&
+                                     !string.IsNullOrWhiteSpace(txtRom.Text) &&
+                                     !string.IsNullOrWhiteSpace(txtCpu.Text) &&
+                                     int.TryParse(txtRam.Text, out _) &&
+                                     int.TryParse(txtRom.Text, out _);
+
+            bool inprimagailuaDatuak = true;
+            if (rbInprimagailua.Checked)
+                inprimagailuaDatuak = rbKoloretakuaBai.Checked || rbKoloretakuaEz.Checked;
+
+            butsartu.Enabled = oinarrizkoak && mintegia && mota && ordenagailuaDatuak && inprimagailuaDatuak;
+        }
+
+        private void butatzera_Click(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is FMenua menu) { menu.MostrarMenua(); return; }
             }
         }
 

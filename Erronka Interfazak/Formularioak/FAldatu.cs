@@ -6,8 +6,7 @@ namespace Erronka_Interfazak
 {
     public partial class FAldatu : Form
     {
-        private int _idGailua = -1;
-        private bool _esOrdenagailua = false;
+        private Gailua? _gailua = null;
 
         public FAldatu()
         {
@@ -79,9 +78,13 @@ namespace Erronka_Interfazak
                                  LEFT JOIN ORDENAGAILUA o ON o.ID_GAILUA = g.ID_GAILUA
                                  LEFT JOIN INPRIMAGAILUA i ON i.ID_GAILUA = g.ID_GAILUA
                                  WHERE g.ID_GAILUA = @id";
+                if (Saioa.Rola == "Mintegiburua")
+                    query += " AND g.ID_MINTEGIA = @idmintegia";
 
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 cmd.Parameters.AddWithValue("@id", id);
+                if (Saioa.Rola == "Mintegiburua")
+                    cmd.Parameters.AddWithValue("@idmintegia", Saioa.MintegiaId);
                 using MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (!reader.Read())
@@ -89,41 +92,59 @@ namespace Erronka_Interfazak
                     MessageBox.Show("Ez da gailurik aurkitu ID horrekin.", "Abisua",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     DesGaituDena();
-                    _idGailua = -1;
+                    _gailua = null;
                     return;
                 }
 
-                _idGailua = id;
-                txtMarka.Text = reader["MARKA"].ToString();
-                txtKokalekua.Text = reader["KOKALEKUA"].ToString();
-                dtpErosteData.Value = Convert.ToDateTime(reader["EROSTEDATA"]);
+                string marka = reader["MARKA"].ToString()!;
+                string kokalekua = reader["KOKALEKUA"].ToString()!;
+                string egoera = reader["EGOERA"].ToString()!;
+                DateTime erosteData = Convert.ToDateTime(reader["EROSTEDATA"]);
 
                 int ramOrdinal = reader.GetOrdinal("RAM");
                 int koloretakoaOrdinal = reader.GetOrdinal("KOLORETAKOA");
 
                 if (!reader.IsDBNull(ramOrdinal))
                 {
-                    _esOrdenagailua = true;
+                    _gailua = new Ordenagailua(
+                        marka, kokalekua, egoera, erosteData,
+                        Convert.ToInt32(reader["RAM"]),
+                        Convert.ToInt32(reader["ROM"]),
+                        reader["CPU"].ToString()!);
+                    _gailua.Id = id;
+
+                    Ordenagailua ord = (Ordenagailua)_gailua;
                     rbOrdenagailua.Checked = true;
                     panOrdenagailua.Visible = true;
                     panInprimagailua.Visible = false;
-                    txtRam.Text = reader["RAM"].ToString();
-                    txtRom.Text = reader["ROM"].ToString();
-                    txtCpu.Text = reader["CPU"].ToString();
+                    txtRam.Text = ord.Ram.ToString();
+                    txtRom.Text = ord.Rom.ToString();
+                    txtCpu.Text = ord.Cpu;
                 }
                 else if (!reader.IsDBNull(koloretakoaOrdinal))
                 {
-                    _esOrdenagailua = false;
+                    _gailua = new Inprimagailua(
+                        marka, kokalekua, egoera, erosteData,
+                        Convert.ToBoolean(reader["KOLORETAKOA"]));
+                    _gailua.Id = id;
+
+                    Inprimagailua inp = (Inprimagailua)_gailua;
                     rbInprimagailua.Checked = true;
                     panInprimagailua.Visible = true;
                     panOrdenagailua.Visible = false;
-                    bool koloretakoa = Convert.ToBoolean(reader["KOLORETAKOA"]);
-                    rbKoloretakuaBai.Checked = koloretakoa;
-                    rbKoloretakuaEz.Checked = !koloretakoa;
+                    rbKoloretakuaBai.Checked = inp.Koloretakoa;
+                    rbKoloretakuaEz.Checked = !inp.Koloretakoa;
+                }
+                else
+                {
+                    _gailua = new Gailua(id, marka, kokalekua, egoera, erosteData);
                 }
 
+                txtMarka.Text = _gailua.Marka;
+                txtKokalekua.Text = _gailua.Kokalekua;
+                dtpErosteData.Value = _gailua.ErosteData1;
+
                 GaituDatuak();
-                // Radio buttons bloqueados: no puede cambiar el tipo de gailua
                 rbOrdenagailua.Enabled = false;
                 rbInprimagailua.Enabled = false;
             }
@@ -136,7 +157,7 @@ namespace Erronka_Interfazak
 
         private void butaldatu_Click(object sender, EventArgs e)
         {
-            if (_idGailua == -1) return;
+            if (_gailua == null) return;
 
             if (string.IsNullOrWhiteSpace(txtMarka.Text) ||
                 string.IsNullOrWhiteSpace(txtKokalekua.Text))
@@ -146,7 +167,7 @@ namespace Erronka_Interfazak
                 return;
             }
 
-            if (_esOrdenagailua)
+            if (_gailua is Ordenagailua)
             {
                 if (string.IsNullOrWhiteSpace(txtRam.Text) ||
                     string.IsNullOrWhiteSpace(txtRom.Text) ||
@@ -164,6 +185,21 @@ namespace Erronka_Interfazak
                 }
             }
 
+            _gailua.Marka = txtMarka.Text.Trim();
+            _gailua.Kokalekua = txtKokalekua.Text.Trim();
+            _gailua.ErosteData1 = dtpErosteData.Value.Date;
+
+            if (_gailua is Ordenagailua ord)
+            {
+                ord.Ram = int.Parse(txtRam.Text.Trim());
+                ord.Rom = int.Parse(txtRom.Text.Trim());
+                ord.Cpu = txtCpu.Text.Trim();
+            }
+            else if (_gailua is Inprimagailua inp)
+            {
+                inp.Koloretakoa = rbKoloretakuaBai.Checked;
+            }
+
             try
             {
                 DBKonexioa.konektatu();
@@ -173,33 +209,33 @@ namespace Erronka_Interfazak
                                         WHERE ID_GAILUA = @id";
                 using (MySqlCommand cmd = new MySqlCommand(updateGailua, DBKonexioa.con))
                 {
-                    cmd.Parameters.AddWithValue("@marka", txtMarka.Text.Trim());
-                    cmd.Parameters.AddWithValue("@kokalekua", txtKokalekua.Text.Trim());
-                    cmd.Parameters.AddWithValue("@erostedata", dtpErosteData.Value.Date);
-                    cmd.Parameters.AddWithValue("@id", _idGailua);
+                    cmd.Parameters.AddWithValue("@marka", _gailua.Marka);
+                    cmd.Parameters.AddWithValue("@kokalekua", _gailua.Kokalekua);
+                    cmd.Parameters.AddWithValue("@erostedata", _gailua.ErosteData1);
+                    cmd.Parameters.AddWithValue("@id", _gailua.Id);
                     cmd.ExecuteNonQuery();
                 }
 
-                if (_esOrdenagailua)
+                if (_gailua is Ordenagailua o)
                 {
                     string updateOrdenagailua = @"UPDATE ORDENAGAILUA
                                                   SET RAM = @ram, ROM = @rom, CPU = @cpu
                                                   WHERE ID_GAILUA = @id";
                     using MySqlCommand cmd2 = new MySqlCommand(updateOrdenagailua, DBKonexioa.con);
-                    cmd2.Parameters.AddWithValue("@ram", int.Parse(txtRam.Text.Trim()));
-                    cmd2.Parameters.AddWithValue("@rom", int.Parse(txtRom.Text.Trim()));
-                    cmd2.Parameters.AddWithValue("@cpu", txtCpu.Text.Trim());
-                    cmd2.Parameters.AddWithValue("@id", _idGailua);
+                    cmd2.Parameters.AddWithValue("@ram", o.Ram);
+                    cmd2.Parameters.AddWithValue("@rom", o.Rom);
+                    cmd2.Parameters.AddWithValue("@cpu", o.Cpu);
+                    cmd2.Parameters.AddWithValue("@id", _gailua.Id);
                     cmd2.ExecuteNonQuery();
                 }
-                else
+                else if (_gailua is Inprimagailua i)
                 {
                     string updateInprimagailua = @"UPDATE INPRIMAGAILUA
                                                    SET KOLORETAKOA = @koloretakoa
                                                    WHERE ID_GAILUA = @id";
                     using MySqlCommand cmd3 = new MySqlCommand(updateInprimagailua, DBKonexioa.con);
-                    cmd3.Parameters.AddWithValue("@koloretakoa", rbKoloretakuaBai.Checked);
-                    cmd3.Parameters.AddWithValue("@id", _idGailua);
+                    cmd3.Parameters.AddWithValue("@koloretakoa", i.Koloretakoa);
+                    cmd3.Parameters.AddWithValue("@id", _gailua.Id);
                     cmd3.ExecuteNonQuery();
                 }
 
@@ -208,7 +244,7 @@ namespace Erronka_Interfazak
 
                 txtId.Clear();
                 DesGaituDena();
-                _idGailua = -1;
+                _gailua = null;
             }
             catch (Exception ex)
             {
@@ -232,6 +268,14 @@ namespace Erronka_Interfazak
         {
             panInprimagailua.Visible = rbInprimagailua.Checked;
             panOrdenagailua.Visible = false;
+        }
+
+        private void butatzera_Click_1(object sender, EventArgs e)
+        {
+            foreach (Form f in Application.OpenForms)
+            {
+                if (f is FMenua menu) { menu.MostrarMenua(); return; }
+            }
         }
     }
 }

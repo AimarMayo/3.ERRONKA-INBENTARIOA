@@ -42,8 +42,8 @@ namespace Erronka_Interfazak
             lblmintegia = new Label();
             lblmintegiaerabiltzailea = new Label();
             panLinea2 = new Panel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
+            picAlboIrudia = new PictureBox();
+            picFondoNagusia = new PictureBox();
             menstriMenua = new MenuStrip();
             iKUSIToolStripMenuItem = new ToolStripMenuItem();
             ikusiToolStripMenuItem1 = new ToolStripMenuItem();
@@ -55,6 +55,7 @@ namespace Erronka_Interfazak
             konponduToolStripMenuItem = new ToolStripMenuItem();
             konpondutaToolStripMenuItem = new ToolStripMenuItem();
             ezabatuakIkusiToolStripMenuItem = new ToolStripMenuItem();
+            inzidentziaEzabatuToolStripMenuItem = new ToolStripMenuItem();
             aDMINISTRARIAToolStripMenuItem = new ToolStripMenuItem();
             mintegiaKudeatuToolStripMenuItem = new ToolStripMenuItem();
             mintegiaGehituToolStripMenuItem = new ToolStripMenuItem();
@@ -71,8 +72,8 @@ namespace Erronka_Interfazak
             panbarralaterala.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picargazkia).BeginInit();
             panPerfilFondo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picAlboIrudia).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picFondoNagusia).BeginInit();
             menstriMenua.SuspendLayout();
             SuspendLayout();
             // 
@@ -85,12 +86,12 @@ namespace Erronka_Interfazak
             panosoa.Name = "panosoa";
             panosoa.Size = new Size(1437, 807);
             panosoa.TabIndex = 0;
-            panosoa.Paint += panel1_Paint;
+            panosoa.Paint += panosoa_Paint;
             // 
             // panmenua
             // 
             panmenua.Controls.Add(panbarralaterala);
-            panmenua.Controls.Add(pictureBox2);
+            panmenua.Controls.Add(picFondoNagusia);
             panmenua.Dock = DockStyle.Fill;
             panmenua.Location = new Point(0, 42);
             panmenua.Name = "panmenua";
@@ -104,7 +105,7 @@ namespace Erronka_Interfazak
             panbarralaterala.Controls.Add(panLinea1);
             panbarralaterala.Controls.Add(panPerfilFondo);
             panbarralaterala.Controls.Add(panLinea2);
-            panbarralaterala.Controls.Add(pictureBox1);
+            panbarralaterala.Controls.Add(picAlboIrudia);
             panbarralaterala.Dock = DockStyle.Left;
             panbarralaterala.Location = new Point(0, 0);
             panbarralaterala.Name = "panbarralaterala";
@@ -218,27 +219,27 @@ namespace Erronka_Interfazak
             panLinea2.Size = new Size(318, 2);
             panLinea2.TabIndex = 12;
             // 
-            // pictureBox1
-            // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(10, 404);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(330, 280);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.FromArgb(235, 244, 255);
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(0, 0);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(1437, 765);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            // picAlboIrudia
+            //
+            picAlboIrudia.Image = (Image)resources.GetObject("pictureBox1.Image");
+            picAlboIrudia.Location = new Point(10, 404);
+            picAlboIrudia.Name = "picAlboIrudia";
+            picAlboIrudia.Size = new Size(330, 280);
+            picAlboIrudia.SizeMode = PictureBoxSizeMode.Zoom;
+            picAlboIrudia.TabIndex = 0;
+            picAlboIrudia.TabStop = false;
+            //
+            // picFondoNagusia
+            //
+            picFondoNagusia.BackColor = Color.FromArgb(235, 244, 255);
+            picFondoNagusia.Dock = DockStyle.Fill;
+            picFondoNagusia.Image = (Image)resources.GetObject("pictureBox2.Image");
+            picFondoNagusia.Location = new Point(0, 0);
+            picFondoNagusia.Name = "picFondoNagusia";
+            picFondoNagusia.Size = new Size(1437, 765);
+            picFondoNagusia.SizeMode = PictureBoxSizeMode.Zoom;
+            picFondoNagusia.TabIndex = 1;
+            picFondoNagusia.TabStop = false;
             // 
             // menstriMenua
             // 
@@ -298,7 +299,7 @@ namespace Erronka_Interfazak
             // 
             // aRAZOAToolStripMenuItem
             // 
-            aRAZOAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ikusiToolStripMenuItem2, konponduToolStripMenuItem, konpondutaToolStripMenuItem, ezabatuakIkusiToolStripMenuItem });
+            aRAZOAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { ikusiToolStripMenuItem2, konponduToolStripMenuItem, konpondutaToolStripMenuItem, inzidentziaEzabatuToolStripMenuItem, ezabatuakIkusiToolStripMenuItem });
             aRAZOAToolStripMenuItem.ForeColor = Color.White;
             aRAZOAToolStripMenuItem.Image = (Image)resources.GetObject("aRAZOAToolStripMenuItem.Image");
             aRAZOAToolStripMenuItem.Name = "aRAZOAToolStripMenuItem";
@@ -329,9 +330,16 @@ namespace Erronka_Interfazak
             konpondutaToolStripMenuItem.Size = new Size(296, 42);
             konpondutaToolStripMenuItem.Text = "Konponduta";
             konpondutaToolStripMenuItem.Click += konpondutaToolStripMenuItem_Click;
-            // 
+            //
+            // inzidentziaEzabatuToolStripMenuItem
+            //
+            inzidentziaEzabatuToolStripMenuItem.Name = "inzidentziaEzabatuToolStripMenuItem";
+            inzidentziaEzabatuToolStripMenuItem.Size = new Size(296, 42);
+            inzidentziaEzabatuToolStripMenuItem.Text = "Inzidentzia Ezabatu";
+            inzidentziaEzabatuToolStripMenuItem.Click += inzidentziaEzabatuToolStripMenuItem_Click;
+            //
             // ezabatuakIkusiToolStripMenuItem
-            // 
+            //
             ezabatuakIkusiToolStripMenuItem.Image = (Image)resources.GetObject("ezabatuakIkusiToolStripMenuItem.Image");
             ezabatuakIkusiToolStripMenuItem.Name = "ezabatuakIkusiToolStripMenuItem";
             ezabatuakIkusiToolStripMenuItem.Size = new Size(296, 42);
@@ -448,8 +456,8 @@ namespace Erronka_Interfazak
             ((System.ComponentModel.ISupportInitialize)picargazkia).EndInit();
             panPerfilFondo.ResumeLayout(false);
             panPerfilFondo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picAlboIrudia).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picFondoNagusia).EndInit();
             menstriMenua.ResumeLayout(false);
             menstriMenua.PerformLayout();
             ResumeLayout(false);
@@ -464,11 +472,11 @@ namespace Erronka_Interfazak
         private ToolStripMenuItem   aDMINISTRARIAToolStripMenuItem;
         private ToolStripMenuItem   iRTENToolStripMenuItem;
         private Panel               panmenua;
-        private PictureBox          pictureBox2;
+        private PictureBox          picFondoNagusia;
         private Panel               panbarralaterala;
         private Panel               panPerfilFondo;
         private Label               lblpostua;
-        private PictureBox          pictureBox1;
+        private PictureBox          picAlboIrudia;
         private Label               lblerabiltzailea;
         private PictureBox          picargazkia;
         private Label               lblerabiltzailepertsonala;
@@ -486,6 +494,7 @@ namespace Erronka_Interfazak
         private ToolStripMenuItem   ikusiToolStripMenuItem2;
         private ToolStripMenuItem   konponduToolStripMenuItem;
         private ToolStripMenuItem   konpondutaToolStripMenuItem;
+        private ToolStripMenuItem   inzidentziaEzabatuToolStripMenuItem;
         private ToolStripMenuItem   ezabatuakIkusiToolStripMenuItem;
         private ToolStripMenuItem   mintegiaKudeatuToolStripMenuItem;
         private ToolStripMenuItem   mintegiaGehituToolStripMenuItem;

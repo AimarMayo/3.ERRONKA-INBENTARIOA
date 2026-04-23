@@ -14,6 +14,24 @@ namespace Erronka_Interfazak
             this.Load += FMenua_Load;
         }
 
+        private void EzarriRolEskubideak()
+        {
+            switch (Saioa.Rola)
+            {
+                case "Mintegiburua":
+                    aDMINISTRARIAToolStripMenuItem.Enabled = false;
+                    break;
+
+                case "Irakaslea":
+                    aRAZOAToolStripMenuItem.Enabled        = false;
+                    aDMINISTRARIAToolStripMenuItem.Enabled = false;
+                    gehituToolStripMenuItem.Enabled        = false;
+                    aldatuToolStripMenuItem.Enabled        = false;
+                    ezabatuToolStripMenuItem.Enabled       = false;
+                    break;
+            }
+        }
+
         private void KargatuErabiltzaileaDatuak()
         {
             try
@@ -26,7 +44,7 @@ namespace Erronka_Interfazak
                                  WHERE e.EMAILA = @emaila";
 
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
-                cmd.Parameters.AddWithValue("@emaila", Sesioa.Emaila);
+                cmd.Parameters.AddWithValue("@emaila", Saioa.Emaila);
                 using MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (reader.Read())
@@ -51,8 +69,9 @@ namespace Erronka_Interfazak
         private void FMenua_Load(object? sender, EventArgs e)
         {
             KargatuErabiltzaileaDatuak();
+            EzarriRolEskubideak();
             EzarriErtzBiribila(panPerfilFondo, 14);
-            EzarriErtzBiribila(pictureBox1, 12);
+            EzarriErtzBiribila(picAlboIrudia, 12);
             EzarriErtzBiribila(picargazkia, 10);
             //EzarriErtzBiribila(lblAvatar, 30); // zirkulua
 
@@ -60,8 +79,8 @@ namespace Erronka_Interfazak
                 MarraztuErtza(ev.Graphics, panPerfilFondo.Width, panPerfilFondo.Height, 14,
                               Color.FromArgb(120, 190, 255));
 
-            pictureBox1.Paint += (s, ev) =>
-                MarraztuErtza(ev.Graphics, pictureBox1.Width, pictureBox1.Height, 12,
+            picAlboIrudia.Paint += (s, ev) =>
+                MarraztuErtza(ev.Graphics, picAlboIrudia.Width, picAlboIrudia.Height, 12,
                               Color.FromArgb(120, 190, 255));
         }
 
@@ -95,7 +114,7 @@ namespace Erronka_Interfazak
 
         private void aRAZOAToolStripMenuItem_Click(object sender, EventArgs e) { }
 
-        private void panel1_Paint(object sender, PaintEventArgs e) { }
+        private void panosoa_Paint(object sender, PaintEventArgs e) { }
 
         private void textBox2_TextChanged(object sender, EventArgs e) { }
 
@@ -145,7 +164,7 @@ namespace Erronka_Interfazak
         {
             panmenua.Controls.Clear();
             panmenua.Controls.Add(panbarralaterala);
-            panmenua.Controls.Add(pictureBox2);
+            panmenua.Controls.Add(picFondoNagusia);
         }
 
         private void ezabatuToolStripMenuItem_Click(object sender, EventArgs e)
@@ -248,9 +267,24 @@ namespace Erronka_Interfazak
             f.Show();
         }
 
+        private void inzidentziaEzabatuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panmenua.Controls.Clear();
+            FInzidentziaEzabatu f = new FInzidentziaEzabatu();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
+        }
+
         private void ezabatuakIkusiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            panmenua.Controls.Clear();
+            FEzabatuakIkusi f = new FEzabatuakIkusi();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
         }
     }
 }

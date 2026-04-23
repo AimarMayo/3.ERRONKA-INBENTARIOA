@@ -35,6 +35,7 @@ namespace Erronka_Interfazak
 
                 while (reader.Read())
                 {
+                    int id            = Convert.ToInt32(reader["ID_GAILUA"]);
                     string marka      = reader["MARKA"].ToString()!;
                     string kokalekua  = reader["KOKALEKUA"].ToString()!;
                     string egoera     = reader["EGOERA"].ToString()!;
@@ -43,22 +44,25 @@ namespace Erronka_Interfazak
                     int ramOrdinal          = reader.GetOrdinal("RAM");
                     int koloretakoaOrdinal  = reader.GetOrdinal("KOLORETAKOA");
 
+                    Gailua gailua;
                     if (!reader.IsDBNull(ramOrdinal))
                     {
                         int ram    = Convert.ToInt32(reader["RAM"]);
                         int rom    = Convert.ToInt32(reader["ROM"]);
                         string cpu = reader["CPU"].ToString()!;
-                        zerrenda.Add(new Ordenagailua(marka, kokalekua, egoera, erosteData, ram, rom, cpu));
+                        gailua = new Ordenagailua(marka, kokalekua, egoera, erosteData, ram, rom, cpu);
                     }
                     else if (!reader.IsDBNull(koloretakoaOrdinal))
                     {
                         bool koloretakoa = Convert.ToBoolean(reader["KOLORETAKOA"]);
-                        zerrenda.Add(new Inprimagailua(marka, kokalekua, egoera, erosteData, koloretakoa));
+                        gailua = new Inprimagailua(marka, kokalekua, egoera, erosteData, koloretakoa);
                     }
                     else
                     {
-                        zerrenda.Add(new Gailua(marka, kokalekua, egoera, erosteData));
+                        gailua = new Gailua(marka, kokalekua, egoera, erosteData);
                     }
+                    gailua.Id = id;
+                    zerrenda.Add(gailua);
                 }
 
                 dgvGailuak.DataSource = ZerrendaDataTable(zerrenda);
@@ -73,6 +77,7 @@ namespace Erronka_Interfazak
         private DataTable ZerrendaDataTable(List<Gailua> zerrenda)
         {
             DataTable dt = new DataTable();
+            dt.Columns.Add("ID",          typeof(int));
             dt.Columns.Add("Marka");
             dt.Columns.Add("Kokalekua");
             dt.Columns.Add("Egoera");
@@ -86,6 +91,7 @@ namespace Erronka_Interfazak
             foreach (Gailua g in zerrenda)
             {
                 DataRow row = dt.NewRow();
+                row["ID"]        = g.Id;
                 row["Marka"]     = g.Marka;
                 row["Kokalekua"] = g.Kokalekua;
                 row["Egoera"]    = g.Egoera;

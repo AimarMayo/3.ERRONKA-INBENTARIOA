@@ -5,11 +5,12 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
-    public partial class FEzabatu : Form
+    public partial class FInzidentziaEzabatu : Form
     {
+        private int _inzidentziaId = -1;
         private Gailua? _gailua = null;
 
-        public FEzabatu()
+        public FInzidentziaEzabatu()
         {
             InitializeComponent();
 
@@ -30,10 +31,10 @@ namespace Erronka_Interfazak
             int h = panela.ClientSize.Height;
 
             panDatuak.Left = (w - panDatuak.Width) / 2;
-            panDatuak.Top = (h - panDatuak.Height) / 2;
+            panDatuak.Top  = (h - panDatuak.Height) / 2;
 
             lblizenburua.Left = (w - lblizenburua.Width) / 2;
-            lblizenburua.Top = panDatuak.Top - lblizenburua.Height - 20;
+            lblizenburua.Top  = panDatuak.Top - lblizenburua.Height - 20;
         }
 
         private void butbilatu_Click(object sender, EventArgs e)
@@ -43,6 +44,7 @@ namespace Erronka_Interfazak
                 lblemaitza.Text = "Mesedez, sartu ID zenbaki bat.";
                 lblemaitza.ForeColor = Color.Red;
                 butezabatu.Enabled = false;
+                _inzidentziaId = -1;
                 _gailua = null;
                 return;
             }
@@ -51,9 +53,10 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
-                string query = @"SELECT g.ID_GAILUA, g.MARKA, g.KOKALEKUA, g.EGOERA, g.EROSTEDATA
-                                 FROM GAILUA g
-                                 WHERE g.ID_GAILUA = @id";
+                string query = @"SELECT i.ID_INZIDENTZIA, g.ID_GAILUA, g.MARKA, g.KOKALEKUA, g.EGOERA, g.EROSTEDATA
+                                 FROM INZIDENTZIAK i
+                                 JOIN GAILUA g ON g.ID_GAILUA = i.ID_GAILUA
+                                 WHERE i.ID_INZIDENTZIA = @id AND g.EGOERA = 'matxuratuta'";
                 if (Saioa.Rola == "Mintegiburua")
                     query += " AND g.ID_MINTEGIA = @idmintegia";
 
@@ -66,22 +69,25 @@ namespace Erronka_Interfazak
                 if (!reader.Read())
                 {
                     lblemaitza.Text = Saioa.Rola == "Mintegiburua"
-                        ? "ID horretako gailua ez da zure mintegiaren gailua."
-                        : "Ez da gailurik aurkitu ID horrekin.";
+                        ? "Ez da inzidentziarik aurkitu ID horrekin zure mintegian (matxuratuta egon behar du)."
+                        : "Ez da inzidentziarik aurkitu ID horrekin edo gailua ez dago matxuratuta.";
                     lblemaitza.ForeColor = Color.Red;
                     butezabatu.Enabled = false;
+                    _inzidentziaId = -1;
                     _gailua = null;
                     return;
                 }
 
-                _gailua = new Gailua(
-                    reader.GetInt32("ID_GAILUA"),
-                    reader["MARKA"].ToString()!,
-                    reader["KOKALEKUA"].ToString()!,
-                    reader["EGOERA"].ToString()!,
-                    Convert.ToDateTime(reader["EROSTEDATA"]));
+                _inzidentziaId = reader.GetInt32("ID_INZIDENTZIA");
+                int idGailua   = reader.GetInt32("ID_GAILUA");
+                string marka   = reader["MARKA"].ToString()!;
+                string kokalekua = reader["KOKALEKUA"].ToString()!;
+                string egoera  = reader["EGOERA"].ToString()!;
+                DateTime erosteData = Convert.ToDateTime(reader["EROSTEDATA"]);
 
-                lblemaitza.Text = $"ID: {_gailua.Id}  |  {_gailua.Marka}  |  {_gailua.Kokalekua}  |  {_gailua.Egoera}";
+                _gailua = new Gailua(idGailua, marka, kokalekua, egoera, erosteData);
+
+                lblemaitza.Text = $"Inzidentzia: {_inzidentziaId}  |  {_gailua.Marka}  |  {_gailua.Kokalekua}  |  {_gailua.Egoera}";
                 lblemaitza.ForeColor = Color.Black;
                 butezabatu.Enabled = true;
             }
@@ -94,10 +100,10 @@ namespace Erronka_Interfazak
 
         private void butezabatu_Click(object sender, EventArgs e)
         {
-            if (_gailua == null) return;
+            if (_gailua == null || _inzidentziaId == -1) return;
 
             DialogResult erantzuna = Galdera.Galdetu(
-                $"Ziur zaude {_gailua.Id} ID-ko gailua ezabatu nahi duzula?",
+                $"Ziur zaude {_inzidentziaId} ID-ko inzidentzia ezabatu nahi duzula?",
                 "Berrespena");
 
             if (erantzuna != DialogResult.Yes) return;
@@ -106,33 +112,27 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
-                string deleteOrdenagailua = "DELETE FROM ORDENAGAILUA WHERE ID_GAILUA = @id";
-                using (MySqlCommand cmd1 = new MySqlCommand(deleteOrdenagailua, DBKonexioa.con))
+                string deleteInzidentzia = "DELETE FROM INZIDENTZIAK WHERE ID_INZIDENTZIA = @id";
+                using (MySqlCommand cmd = new MySqlCommand(deleteInzidentzia, DBKonexioa.con))
                 {
-                    cmd1.Parameters.AddWithValue("@id", _gailua.Id);
-                    cmd1.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@id", _inzidentziaId);
+                    cmd.ExecuteNonQuery();
                 }
 
-                string deleteInprimagailua = "DELETE FROM INPRIMAGAILUA WHERE ID_GAILUA = @id";
-                using (MySqlCommand cmd2 = new MySqlCommand(deleteInprimagailua, DBKonexioa.con))
+                string updateGailua = "UPDATE GAILUA SET EGOERA = 'erabilgarri' WHERE ID_GAILUA = @id";
+                using (MySqlCommand cmd = new MySqlCommand(updateGailua, DBKonexioa.con))
                 {
-                    cmd2.Parameters.AddWithValue("@id", _gailua.Id);
-                    cmd2.ExecuteNonQuery();
+                    cmd.Parameters.AddWithValue("@id", _gailua.Id);
+                    cmd.ExecuteNonQuery();
                 }
 
-                string deleteGailua = "DELETE FROM GAILUA WHERE ID_GAILUA = @id";
-                using (MySqlCommand cmd3 = new MySqlCommand(deleteGailua, DBKonexioa.con))
-                {
-                    cmd3.Parameters.AddWithValue("@id", _gailua.Id);
-                    cmd3.ExecuteNonQuery();
-                }
-
-                MessageBox.Show("Gailua behar bezala ezabatu da.", "Ondo",
+                MessageBox.Show("Inzidentzia behar bezala ezabatu da.", "Ondo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtid.Clear();
                 lblemaitza.Text = "";
                 butezabatu.Enabled = false;
+                _inzidentziaId = -1;
                 _gailua = null;
             }
             catch (Exception ex)

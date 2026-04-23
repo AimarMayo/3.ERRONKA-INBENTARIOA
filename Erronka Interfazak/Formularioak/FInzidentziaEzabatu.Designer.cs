@@ -1,6 +1,6 @@
 namespace Erronka_Interfazak
 {
-    partial class FMintegiaEzabatu
+    partial class FInzidentziaEzabatu
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -51,9 +51,9 @@ namespace Erronka_Interfazak
             lblizenburua.ForeColor = Color.White;
             lblizenburua.Location = new Point(245, 50);
             lblizenburua.Name = "lblizenburua";
-            lblizenburua.Size = new Size(360, 45);
+            lblizenburua.Size = new Size(420, 45);
             lblizenburua.TabIndex = 0;
-            lblizenburua.Text = "MINTEGIA EZABATU";
+            lblizenburua.Text = "INZIDENTZIA EZABATU";
             //
             // panDatuak
             //
@@ -99,7 +99,6 @@ namespace Erronka_Interfazak
             butbilatu.TabIndex = 2;
             butbilatu.Text = "BILATU";
             butbilatu.UseVisualStyleBackColor = false;
-            butbilatu.Click += butbilatu_Click;
             //
             // butezabatu
             //
@@ -112,7 +111,6 @@ namespace Erronka_Interfazak
             butezabatu.TabIndex = 4;
             butezabatu.Text = "EZABATU";
             butezabatu.UseVisualStyleBackColor = false;
-            butezabatu.Click += butezabatu_Click;
             //
             // butatzera
             //
@@ -135,7 +133,7 @@ namespace Erronka_Interfazak
             panEmaitza.Location = new Point(20, 89);
             panEmaitza.Name = "panEmaitza";
             panEmaitza.Size = new Size(535, 40);
-            panEmaitza.TabIndex = 3;
+            panEmaitza.TabIndex = 4;
             //
             // lblemaitza
             //
@@ -148,7 +146,7 @@ namespace Erronka_Interfazak
             lblemaitza.TabIndex = 0;
             lblemaitza.TextAlign = ContentAlignment.MiddleCenter;
             //
-            // FMintegiaEzabatu
+            // FInzidentziaEzabatu
             //
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -156,8 +154,8 @@ namespace Erronka_Interfazak
             ClientSize = new Size(1317, 772);
             Controls.Add(panela);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "FMintegiaEzabatu";
-            Text = "FMintegiaEzabatu";
+            Name = "FInzidentziaEzabatu";
+            Text = "FInzidentziaEzabatu";
             WindowState = FormWindowState.Maximized;
             panela.ResumeLayout(false);
             panela.PerformLayout();

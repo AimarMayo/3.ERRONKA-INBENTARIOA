@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e88b4a81525a263ba47ad91292aedd40d7823fdd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7cbae1b6d26e2cc5f09d0ab883e4ba539ae1e45")]
 [assembly: System.Reflection.AssemblyProductAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -18,7 +18,7 @@ namespace Erronka_Interfazak
         {
             InitializeComponent();
             this.emaila = emaila;
-            textBox2.PasswordChar = '*';
+            txtPasahitzBerria.PasswordChar = '*';
         }
 
         private void FPasahitza_Load(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace Erronka_Interfazak
                 ref preference, sizeof(int));
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtPasahitzBerria_TextChanged(object sender, EventArgs e)
         {
         }
 
@@ -38,7 +38,7 @@ namespace Erronka_Interfazak
 
         private void butaldatu_Click(object sender, EventArgs e)
         {
-            Erabiltzailea erabiltzailea = new Erabiltzailea("", "", emaila, textBox2.Text);
+            Erabiltzailea erabiltzailea = new Erabiltzailea("", "", emaila, txtPasahitzBerria.Text);
 
             if (erabiltzailea.Pasahitza.Length < 8)
             {

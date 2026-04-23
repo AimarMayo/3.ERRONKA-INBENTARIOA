@@ -9,6 +9,7 @@ namespace Erronka_Interfazak
     public partial class FKonponduta : Form
     {
         private Gailua? _gailua = null;
+        private int _inzidentziaId = -1;
 
         public FKonponduta()
         {
@@ -58,22 +59,30 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
-                string query = @"SELECT ID_GAILUA, MARKA, KOKALEKUA, EGOERA, EROSTEDATA
-                                 FROM GAILUA WHERE ID_GAILUA = @id AND EGOERA = 'matxuratuta'";
+                string query = @"SELECT i.ID_INZIDENTZIA, g.ID_GAILUA, g.MARKA, g.KOKALEKUA, g.EGOERA, g.EROSTEDATA
+                                 FROM INZIDENTZIAK i
+                                 JOIN GAILUA g ON g.ID_GAILUA = i.ID_GAILUA
+                                 WHERE i.ID_INZIDENTZIA = @id AND g.EGOERA = 'matxuratuta'";
+                if (Saioa.Rola == "Mintegiburua")
+                    query += " AND g.ID_MINTEGIA = @idmintegia";
 
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 cmd.Parameters.AddWithValue("@id", id);
+                if (Saioa.Rola == "Mintegiburua")
+                    cmd.Parameters.AddWithValue("@idmintegia", Saioa.MintegiaId);
                 using MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (!reader.Read())
                 {
-                    lblemaitza.Text = "Ez da gailurik aurkitu ID horrekin edo ez dago matxuratuta.";
+                    lblemaitza.Text = "Ez da inzidentziarik aurkitu ID horrekin edo gailua ez dago matxuratuta.";
                     lblemaitza.ForeColor = Color.Red;
                     butkonpondu.Enabled = false;
                     _gailua = null;
+                    _inzidentziaId = -1;
                     return;
                 }
 
+                _inzidentziaId = reader.GetInt32("ID_INZIDENTZIA");
                 _gailua = new Gailua(
                     reader.GetInt32("ID_GAILUA"),
                     reader["MARKA"].ToString()!,
@@ -81,7 +90,7 @@ namespace Erronka_Interfazak
                     reader["EGOERA"].ToString()!,
                     Convert.ToDateTime(reader["EROSTEDATA"]));
 
-                lblemaitza.Text = $"ID: {_gailua.Id}  |  {_gailua.Marka}  |  {_gailua.Kokalekua}  |  {_gailua.Egoera}";
+                lblemaitza.Text = $"Inzidentzia: {_inzidentziaId}  |  {_gailua.Marka}  |  {_gailua.Kokalekua}  |  {_gailua.Egoera}";
                 lblemaitza.ForeColor = Color.Black;
                 butkonpondu.Enabled = true;
             }
@@ -108,11 +117,11 @@ namespace Erronka_Interfazak
                 }
 
                 string updateInzidentzia = @"UPDATE INZIDENTZIAK SET KONPONTZE_DATA = @data
-                                             WHERE ID_GAILUA = @idgailua AND KONPONTZE_DATA IS NULL";
+                                             WHERE ID_INZIDENTZIA = @idinzidentzia";
                 using (MySqlCommand cmd2 = new MySqlCommand(updateInzidentzia, DBKonexioa.con))
                 {
                     cmd2.Parameters.AddWithValue("@data", DateTime.Now);
-                    cmd2.Parameters.AddWithValue("@idgailua", _gailua.Id);
+                    cmd2.Parameters.AddWithValue("@idinzidentzia", _inzidentziaId);
                     cmd2.ExecuteNonQuery();
                 }
 
@@ -123,6 +132,7 @@ namespace Erronka_Interfazak
                 lblemaitza.Text = "";
                 butkonpondu.Enabled = false;
                 _gailua = null;
+                _inzidentziaId = -1;
             }
             catch (Exception ex)
             {

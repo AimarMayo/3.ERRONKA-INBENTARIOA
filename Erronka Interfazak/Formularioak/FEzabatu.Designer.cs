@@ -25,11 +25,11 @@ namespace Erronka_Interfazak
             butbilatu = new Button();
             butezabatu = new Button();
             butatzera = new Button();
-            panel1 = new Panel();
+            panEmaitza = new Panel();
             lblemaitza = new Label();
             panela.SuspendLayout();
             panDatuak.SuspendLayout();
-            panel1.SuspendLayout();
+            panEmaitza.SuspendLayout();
             SuspendLayout();
             // 
             // panela
@@ -58,7 +58,7 @@ namespace Erronka_Interfazak
             // panDatuak
             // 
             panDatuak.BackColor = SystemColors.Highlight;
-            panDatuak.Controls.Add(panel1);
+            panDatuak.Controls.Add(panEmaitza);
             panDatuak.Controls.Add(lblid);
             panDatuak.Controls.Add(txtid);
             panDatuak.Controls.Add(butbilatu);
@@ -125,15 +125,15 @@ namespace Erronka_Interfazak
             butatzera.UseVisualStyleBackColor = false;
             butatzera.Click += butatzera_Click;
             // 
-            // panel1
+            // panEmaitza
             // 
-            panel1.BackColor = Color.White;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(lblemaitza);
-            panel1.Location = new Point(20, 89);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(535, 40);
-            panel1.TabIndex = 4;
+            panEmaitza.BackColor = Color.White;
+            panEmaitza.BorderStyle = BorderStyle.FixedSingle;
+            panEmaitza.Controls.Add(lblemaitza);
+            panEmaitza.Location = new Point(20, 89);
+            panEmaitza.Name = "panEmaitza";
+            panEmaitza.Size = new Size(535, 40);
+            panEmaitza.TabIndex = 4;
             // 
             // lblemaitza
             // 
@@ -161,7 +161,7 @@ namespace Erronka_Interfazak
             panela.PerformLayout();
             panDatuak.ResumeLayout(false);
             panDatuak.PerformLayout();
-            panel1.ResumeLayout(false);
+            panEmaitza.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -174,7 +174,7 @@ namespace Erronka_Interfazak
         private Button butbilatu;
         private Button butezabatu;
         private Button butatzera;
-        private Panel panel1;
+        private Panel panEmaitza;
         private Label lblemaitza;
     }
 }

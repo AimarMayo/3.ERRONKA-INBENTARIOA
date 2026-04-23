@@ -57,9 +57,13 @@ namespace Erronka_Interfazak
 
                 string query = @"SELECT ID_GAILUA, MARKA, KOKALEKUA, EGOERA, EROSTEDATA
                                  FROM GAILUA WHERE ID_GAILUA = @id";
+                if (Saioa.Rola == "Mintegiburua")
+                    query += " AND ID_MINTEGIA = @idmintegia";
 
                 using MySqlCommand cmd = new MySqlCommand(query, DBKonexioa.con);
                 cmd.Parameters.AddWithValue("@id", id);
+                if (Saioa.Rola == "Mintegiburua")
+                    cmd.Parameters.AddWithValue("@idmintegia", Saioa.MintegiaId);
                 using MySqlDataReader reader = cmd.ExecuteReader();
 
                 if (!reader.Read())
@@ -108,7 +112,7 @@ namespace Erronka_Interfazak
                 string queryId = "SELECT ID_ERABILTZAILEA FROM ERABILTZAILEA WHERE EMAILA = @emaila";
                 using (MySqlCommand cmdId = new MySqlCommand(queryId, DBKonexioa.con))
                 {
-                    cmdId.Parameters.AddWithValue("@emaila", Sesioa.Emaila);
+                    cmdId.Parameters.AddWithValue("@emaila", Saioa.Emaila);
                     idErabiltzailea = Convert.ToInt32(cmdId.ExecuteScalar());
                 }
 

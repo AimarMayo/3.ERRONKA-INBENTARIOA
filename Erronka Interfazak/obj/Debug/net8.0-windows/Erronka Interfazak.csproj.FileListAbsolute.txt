@@ -49,3 +49,5 @@ C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\
 C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\Erronka_Interfazak.FLangileakIkusi.resources
 C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\Erronka_Interfazak.FMintegiaIkusi.resources
 C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\Erronka Interfazak.sourcelink.json
+C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\Erronka_Interfazak.FEzabatuakIkusi.resources
+C:\Users\aimar\Desktop\Fp\Erronka 3\Erronka Interfazak\obj\Debug\net8.0-windows\Erronka_Interfazak.FInzidentziaEzabatu.resources

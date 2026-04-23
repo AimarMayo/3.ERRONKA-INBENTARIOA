@@ -39,6 +39,7 @@ namespace Erronka_Interfazak
             dtpErosteData = new DateTimePicker();
             lblMintegia = new Label();
             lblMintegiaBalio = new Label();
+            cmbMintegia = new ComboBox();
             lblGailuMota = new Label();
             rbOrdenagailua = new RadioButton();
             rbInprimagailua = new RadioButton();
@@ -54,6 +55,7 @@ namespace Erronka_Interfazak
             rbKoloretakuaBai = new RadioButton();
             rbKoloretakuaEz = new RadioButton();
             butsartu = new Button();
+            butatzera = new Button();
             panela.SuspendLayout();
             panDatuak.SuspendLayout();
             panOrdenagailua.SuspendLayout();
@@ -96,12 +98,14 @@ namespace Erronka_Interfazak
             panDatuak.Controls.Add(dtpErosteData);
             panDatuak.Controls.Add(lblMintegia);
             panDatuak.Controls.Add(lblMintegiaBalio);
+            panDatuak.Controls.Add(cmbMintegia);
             panDatuak.Controls.Add(lblGailuMota);
             panDatuak.Controls.Add(rbOrdenagailua);
             panDatuak.Controls.Add(rbInprimagailua);
             panDatuak.Controls.Add(panOrdenagailua);
             panDatuak.Controls.Add(panInprimagailua);
             panDatuak.Controls.Add(butsartu);
+            panDatuak.Controls.Add(butatzera);
             panDatuak.Location = new Point(110, 112);
             panDatuak.Name = "panDatuak";
             panDatuak.Size = new Size(580, 470);
@@ -186,9 +190,19 @@ namespace Erronka_Interfazak
             lblMintegiaBalio.Name = "lblMintegiaBalio";
             lblMintegiaBalio.Size = new Size(0, 25);
             lblMintegiaBalio.TabIndex = 8;
-            // 
+            //
+            // cmbMintegia
+            //
+            cmbMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbMintegia.Location = new Point(180, 155);
+            cmbMintegia.Name = "cmbMintegia";
+            cmbMintegia.Size = new Size(375, 33);
+            cmbMintegia.TabIndex = 21;
+            cmbMintegia.Visible = false;
+            //
             // lblGailuMota
-            // 
+            //
             lblGailuMota.AutoSize = true;
             lblGailuMota.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGailuMota.ForeColor = Color.Black;
@@ -347,13 +361,26 @@ namespace Erronka_Interfazak
             butsartu.BackColor = Color.White;
             butsartu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             butsartu.ForeColor = SystemColors.Highlight;
-            butsartu.Location = new Point(105, 408);
+            butsartu.Location = new Point(20, 408);
             butsartu.Name = "butsartu";
-            butsartu.Size = new Size(370, 50);
+            butsartu.Size = new Size(255, 50);
             butsartu.TabIndex = 20;
             butsartu.Text = "SARTU";
             butsartu.UseVisualStyleBackColor = false;
             butsartu.Click += butsartu_Click;
+            //
+            // butatzera
+            //
+            butatzera.BackColor = Color.White;
+            butatzera.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            butatzera.ForeColor = SystemColors.Highlight;
+            butatzera.Location = new Point(295, 408);
+            butatzera.Name = "butatzera";
+            butatzera.Size = new Size(255, 50);
+            butatzera.TabIndex = 21;
+            butatzera.Text = "ATZERA";
+            butatzera.UseVisualStyleBackColor = false;
+            butatzera.Click += butatzera_Click;
             // 
             // FGehitu
             // 
@@ -383,6 +410,7 @@ namespace Erronka_Interfazak
         private Panel panDatuak;
         private Label lblMintegia;
         private Label lblMintegiaBalio;
+        private ComboBox cmbMintegia;
         private Label lblMarka;
         private TextBox txtMarka;
         private Label lblKokalekua;
@@ -404,5 +432,6 @@ namespace Erronka_Interfazak
         private RadioButton rbKoloretakuaBai;
         private RadioButton rbKoloretakuaEz;
         private Button butsartu;
+        private Button butatzera;
     }
 }
