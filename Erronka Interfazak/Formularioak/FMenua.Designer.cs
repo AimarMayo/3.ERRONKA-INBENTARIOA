@@ -54,8 +54,8 @@ namespace Erronka_Interfazak
             ikusiToolStripMenuItem2 = new ToolStripMenuItem();
             konponduToolStripMenuItem = new ToolStripMenuItem();
             konpondutaToolStripMenuItem = new ToolStripMenuItem();
-            ezabatuakIkusiToolStripMenuItem = new ToolStripMenuItem();
             inzidentziaEzabatuToolStripMenuItem = new ToolStripMenuItem();
+            ezabatuakIkusiToolStripMenuItem = new ToolStripMenuItem();
             aDMINISTRARIAToolStripMenuItem = new ToolStripMenuItem();
             mintegiaKudeatuToolStripMenuItem = new ToolStripMenuItem();
             mintegiaGehituToolStripMenuItem = new ToolStripMenuItem();
@@ -220,20 +220,20 @@ namespace Erronka_Interfazak
             panLinea2.TabIndex = 12;
             // 
             // picAlboIrudia
-            //
-            picAlboIrudia.Image = (Image)resources.GetObject("pictureBox1.Image");
+            // 
+            picAlboIrudia.Image = (Image)resources.GetObject("picAlboIrudia.Image");
             picAlboIrudia.Location = new Point(10, 404);
             picAlboIrudia.Name = "picAlboIrudia";
             picAlboIrudia.Size = new Size(330, 280);
             picAlboIrudia.SizeMode = PictureBoxSizeMode.Zoom;
             picAlboIrudia.TabIndex = 0;
             picAlboIrudia.TabStop = false;
-            //
+            // 
             // picFondoNagusia
-            //
+            // 
             picFondoNagusia.BackColor = Color.FromArgb(235, 244, 255);
             picFondoNagusia.Dock = DockStyle.Fill;
-            picFondoNagusia.Image = (Image)resources.GetObject("pictureBox2.Image");
+            picFondoNagusia.Image = (Image)resources.GetObject("picFondoNagusia.Image");
             picFondoNagusia.Location = new Point(0, 0);
             picFondoNagusia.Name = "picFondoNagusia";
             picFondoNagusia.Size = new Size(1437, 765);
@@ -311,7 +311,7 @@ namespace Erronka_Interfazak
             // 
             ikusiToolStripMenuItem2.Image = (Image)resources.GetObject("ikusiToolStripMenuItem2.Image");
             ikusiToolStripMenuItem2.Name = "ikusiToolStripMenuItem2";
-            ikusiToolStripMenuItem2.Size = new Size(296, 42);
+            ikusiToolStripMenuItem2.Size = new Size(345, 42);
             ikusiToolStripMenuItem2.Text = "Ikusi";
             ikusiToolStripMenuItem2.Click += ikusiToolStripMenuItem2_Click;
             // 
@@ -319,7 +319,7 @@ namespace Erronka_Interfazak
             // 
             konponduToolStripMenuItem.Image = (Image)resources.GetObject("konponduToolStripMenuItem.Image");
             konponduToolStripMenuItem.Name = "konponduToolStripMenuItem";
-            konponduToolStripMenuItem.Size = new Size(296, 42);
+            konponduToolStripMenuItem.Size = new Size(345, 42);
             konponduToolStripMenuItem.Text = "Konpondu";
             konponduToolStripMenuItem.Click += konponduToolStripMenuItem_Click;
             // 
@@ -327,22 +327,23 @@ namespace Erronka_Interfazak
             // 
             konpondutaToolStripMenuItem.Image = (Image)resources.GetObject("konpondutaToolStripMenuItem.Image");
             konpondutaToolStripMenuItem.Name = "konpondutaToolStripMenuItem";
-            konpondutaToolStripMenuItem.Size = new Size(296, 42);
+            konpondutaToolStripMenuItem.Size = new Size(345, 42);
             konpondutaToolStripMenuItem.Text = "Konponduta";
             konpondutaToolStripMenuItem.Click += konpondutaToolStripMenuItem_Click;
-            //
+            // 
             // inzidentziaEzabatuToolStripMenuItem
-            //
+            // 
+            inzidentziaEzabatuToolStripMenuItem.Image = (Image)resources.GetObject("inzidentziaEzabatuToolStripMenuItem.Image");
             inzidentziaEzabatuToolStripMenuItem.Name = "inzidentziaEzabatuToolStripMenuItem";
-            inzidentziaEzabatuToolStripMenuItem.Size = new Size(296, 42);
+            inzidentziaEzabatuToolStripMenuItem.Size = new Size(345, 42);
             inzidentziaEzabatuToolStripMenuItem.Text = "Inzidentzia Ezabatu";
             inzidentziaEzabatuToolStripMenuItem.Click += inzidentziaEzabatuToolStripMenuItem_Click;
-            //
+            // 
             // ezabatuakIkusiToolStripMenuItem
-            //
+            // 
             ezabatuakIkusiToolStripMenuItem.Image = (Image)resources.GetObject("ezabatuakIkusiToolStripMenuItem.Image");
             ezabatuakIkusiToolStripMenuItem.Name = "ezabatuakIkusiToolStripMenuItem";
-            ezabatuakIkusiToolStripMenuItem.Size = new Size(296, 42);
+            ezabatuakIkusiToolStripMenuItem.Size = new Size(345, 42);
             ezabatuakIkusiToolStripMenuItem.Text = "Ezabatuak Ikusi";
             ezabatuakIkusiToolStripMenuItem.Click += ezabatuakIkusiToolStripMenuItem_Click;
             // 

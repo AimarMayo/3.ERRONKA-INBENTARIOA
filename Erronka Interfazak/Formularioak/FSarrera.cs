@@ -47,7 +47,7 @@ namespace Erronka_Interfazak
                 }
 
                 Saioa.Emaila = erabiltzailea.Emaila;
-                Saioa.Rola   = reader["ROLA"].ToString()!.Trim();
+                Saioa.Rola = reader["ROLA"].ToString()!.Trim();
                 int mintegiaOrdinal = reader.GetOrdinal("ID_MINTEGIA");
                 Saioa.MintegiaId = reader.IsDBNull(mintegiaOrdinal)
                     ? 0
@@ -78,6 +78,11 @@ namespace Erronka_Interfazak
         private void FSarrera_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void FSarrera_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

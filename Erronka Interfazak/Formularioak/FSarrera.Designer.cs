@@ -125,6 +125,7 @@
             Name = "FSarrera";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SARRERA";
+            FormClosed += FSarrera_FormClosed;
             Load += FSarrera_Load;
             pansarrera.ResumeLayout(false);
             pansarrera.PerformLayout();
