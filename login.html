@@ -71,23 +71,36 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const loginFormularioa = document.getElementById("loginFormularioa");
+const loginFormularioa = document.getElementById("loginFormularioa");
 
-    if (loginFormularioa) {
-      loginFormularioa.addEventListener("submit", function(e) {
-        e.preventDefault();
 
-        const erabiltzailea = document.getElementById("erabiltzailea").value;
-        const pasahitza = document.getElementById("pasahitza").value;
-        const loginErantzuna = document.getElementById("loginErantzuna");
+document.querySelectorAll("input").forEach(input => {
+  input.addEventListener("invalid", function() {
+    input.setCustomValidity("Mesedez, bete eremu hau");
+  });
 
-        if (erabiltzailea === "admin" && pasahitza === "1234") {
-          window.location.href = "admin.html";
-        } else {
-          loginErantzuna.textContent = "Erabiltzaile izena edo pasahitza ez da zuzena.";
-        }
-      });
+  input.addEventListener("input", function() {
+    input.setCustomValidity("");
+  });
+});
+
+
+
+if (loginFormularioa) {
+  loginFormularioa.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const erabiltzailea = document.getElementById("erabiltzailea").value;
+    const pasahitza = document.getElementById("pasahitza").value;
+    const loginErantzuna = document.getElementById("loginErantzuna");
+
+    if (erabiltzailea === "admin" && pasahitza === "1234") {
+      window.location.href = "admin.html";
+    } else {
+      loginErantzuna.textContent = "Erabiltzaile izena edo pasahitza ez da zuzena.";
     }
-  </script>
+  });
+}
+</script>
 </body>
 </html>

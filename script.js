@@ -8,6 +8,13 @@ document.addEventListener("DOMContentLoaded", function () {
     formularioa.addEventListener("submit", function (e) {
       e.preventDefault();
 
+    
+      if (!formularioa.checkValidity()) {
+        formularioa.reportValidity();
+        return;
+      }
+
+    
       emailjs.sendForm("service_co875ff", "template_gdxths9", this)
         .then(function (response) {
           console.log("OK:", response);
