@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FSarrera));
             pansarrera = new Panel();
+            butitxi = new Button();
             butsartu = new Button();
             txtpasahitza = new TextBox();
             lblpasahitza = new Label();
@@ -41,6 +42,7 @@
             // 
             // pansarrera
             // 
+            pansarrera.Controls.Add(butitxi);
             pansarrera.Controls.Add(butsartu);
             pansarrera.Controls.Add(txtpasahitza);
             pansarrera.Controls.Add(lblpasahitza);
@@ -53,6 +55,19 @@
             pansarrera.Size = new Size(800, 450);
             pansarrera.TabIndex = 0;
             // 
+            // butitxi
+            // 
+            butitxi.BackColor = Color.Gray;
+            butitxi.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            butitxi.ForeColor = SystemColors.Control;
+            butitxi.Location = new Point(382, 287);
+            butitxi.Name = "butitxi";
+            butitxi.Size = new Size(178, 57);
+            butitxi.TabIndex = 8;
+            butitxi.Text = "ITXI";
+            butitxi.UseVisualStyleBackColor = false;
+            butitxi.Click += butitxi_Click;
+            // 
             // butsartu
             // 
             butsartu.BackColor = SystemColors.Highlight;
@@ -60,7 +75,7 @@
             butsartu.ForeColor = SystemColors.Control;
             butsartu.Location = new Point(190, 287);
             butsartu.Name = "butsartu";
-            butsartu.Size = new Size(370, 57);
+            butsartu.Size = new Size(178, 57);
             butsartu.TabIndex = 7;
             butsartu.Text = "SARRERA";
             butsartu.UseVisualStyleBackColor = false;
@@ -118,15 +133,14 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(pansarrera);
-            FormBorderStyle = FormBorderStyle.FixedSingle;
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FSarrera";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "SARRERA";
-            FormClosed += FSarrera_FormClosed;
-            Load += FSarrera_Load;
+
             pansarrera.ResumeLayout(false);
             pansarrera.PerformLayout();
             ResumeLayout(false);
@@ -141,5 +155,6 @@
         private Label lblEmaila;
         private Label lblsaioahasi;
         private Button butsartu;
+        private Button butitxi;
     }
 }

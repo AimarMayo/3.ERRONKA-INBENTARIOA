@@ -106,6 +106,49 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
+                int idErabiltzailea;
+                string queryUserId = "SELECT ID_ERABILTZAILEA FROM ERABILTZAILEA WHERE EMAILA = @emaila";
+                using (MySqlCommand cmd = new MySqlCommand(queryUserId, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@emaila", Saioa.Emaila);
+                    idErabiltzailea = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                string queryMota = @"SELECT CASE
+                                         WHEN o.ID_GAILUA IS NOT NULL THEN 'Ordenagailua'
+                                         WHEN i.ID_GAILUA IS NOT NULL THEN 'Inprimagailua'
+                                         ELSE 'Gailua' END AS MOTA
+                                     FROM GAILUA g
+                                     LEFT JOIN ORDENAGAILUA o ON o.ID_GAILUA = g.ID_GAILUA
+                                     LEFT JOIN INPRIMAGAILUA i ON i.ID_GAILUA = g.ID_GAILUA
+                                     WHERE g.ID_GAILUA = @id";
+                string mota;
+                using (MySqlCommand cmd = new MySqlCommand(queryMota, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@id", _gailua.Id);
+                    mota = cmd.ExecuteScalar()?.ToString() ?? "Gailua";
+                }
+
+                string moveGailua = @"INSERT INTO EZABATUTAKO_GAILUA (marka, kokalekua, mota, erostedata, ezabatze_data, id_erabiltzailea)
+                                      VALUES (@marka, @kokalekua, @mota, @erostedata, @ezabatze_data, @id_erabiltzailea)";
+                using (MySqlCommand cmdMove = new MySqlCommand(moveGailua, DBKonexioa.con))
+                {
+                    cmdMove.Parameters.AddWithValue("@marka", _gailua.Marka);
+                    cmdMove.Parameters.AddWithValue("@kokalekua", _gailua.Kokalekua);
+                    cmdMove.Parameters.AddWithValue("@mota", mota);
+                    cmdMove.Parameters.AddWithValue("@erostedata", _gailua.ErosteData1);
+                    cmdMove.Parameters.AddWithValue("@ezabatze_data", DateTime.Today);
+                    cmdMove.Parameters.AddWithValue("@id_erabiltzailea", idErabiltzailea);
+                    cmdMove.ExecuteNonQuery();
+                }
+
+                string deleteInzidentziak = "DELETE FROM INZIDENTZIAK WHERE ID_GAILUA = @id";
+                using (MySqlCommand cmd0 = new MySqlCommand(deleteInzidentziak, DBKonexioa.con))
+                {
+                    cmd0.Parameters.AddWithValue("@id", _gailua.Id);
+                    cmd0.ExecuteNonQuery();
+                }
+
                 string deleteOrdenagailua = "DELETE FROM ORDENAGAILUA WHERE ID_GAILUA = @id";
                 using (MySqlCommand cmd1 = new MySqlCommand(deleteOrdenagailua, DBKonexioa.con))
                 {

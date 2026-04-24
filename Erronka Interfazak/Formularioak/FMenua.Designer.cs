@@ -63,6 +63,7 @@ namespace Erronka_Interfazak
             mintegiaKenduToolStripMenuItem = new ToolStripMenuItem();
             langileakGehituToolStripMenuItem = new ToolStripMenuItem();
             langileakToolStripMenuItem = new ToolStripMenuItem();
+            langileaAldatuToolStripMenuItem = new ToolStripMenuItem();
             langileakKenduToolStripMenuItem = new ToolStripMenuItem();
             iRTENToolStripMenuItem = new ToolStripMenuItem();
             irtenSarreraraToolStripMenuItem = new ToolStripMenuItem();
@@ -86,7 +87,6 @@ namespace Erronka_Interfazak
             panosoa.Name = "panosoa";
             panosoa.Size = new Size(1437, 807);
             panosoa.TabIndex = 0;
-            panosoa.Paint += panosoa_Paint;
             // 
             // panmenua
             // 
@@ -166,7 +166,6 @@ namespace Erronka_Interfazak
             lblerabiltzailepertsonala.Size = new Size(59, 25);
             lblerabiltzailepertsonala.TabIndex = 5;
             lblerabiltzailepertsonala.Text = "Aimar";
-            lblerabiltzailepertsonala.Click += lblerabiltzailepertsonala_Click;
             // 
             // lblpostua
             // 
@@ -254,7 +253,6 @@ namespace Erronka_Interfazak
             menstriMenua.Size = new Size(1437, 42);
             menstriMenua.TabIndex = 0;
             menstriMenua.Text = "menuStrip1";
-            menstriMenua.ItemClicked += menstriMenua_ItemClicked;
             // 
             // iKUSIToolStripMenuItem
             // 
@@ -305,7 +303,6 @@ namespace Erronka_Interfazak
             aRAZOAToolStripMenuItem.Name = "aRAZOAToolStripMenuItem";
             aRAZOAToolStripMenuItem.Size = new Size(198, 42);
             aRAZOAToolStripMenuItem.Text = "Inzidentziak";
-            aRAZOAToolStripMenuItem.Click += aRAZOAToolStripMenuItem_Click;
             // 
             // ikusiToolStripMenuItem2
             // 
@@ -349,13 +346,12 @@ namespace Erronka_Interfazak
             // 
             // aDMINISTRARIAToolStripMenuItem
             // 
-            aDMINISTRARIAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mintegiaKudeatuToolStripMenuItem, langileakGehituToolStripMenuItem, langileakToolStripMenuItem, langileakKenduToolStripMenuItem });
+            aDMINISTRARIAToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { mintegiaKudeatuToolStripMenuItem, langileakGehituToolStripMenuItem, langileakToolStripMenuItem, langileaAldatuToolStripMenuItem, langileakKenduToolStripMenuItem });
             aDMINISTRARIAToolStripMenuItem.ForeColor = Color.White;
             aDMINISTRARIAToolStripMenuItem.Image = (Image)resources.GetObject("aDMINISTRARIAToolStripMenuItem.Image");
             aDMINISTRARIAToolStripMenuItem.Name = "aDMINISTRARIAToolStripMenuItem";
             aDMINISTRARIAToolStripMenuItem.Size = new Size(215, 42);
             aDMINISTRARIAToolStripMenuItem.Text = "Administraria";
-            aDMINISTRARIAToolStripMenuItem.Click += aDMINISTRARIAToolStripMenuItem_Click;
             // 
             // mintegiaKudeatuToolStripMenuItem
             // 
@@ -404,6 +400,14 @@ namespace Erronka_Interfazak
             langileakToolStripMenuItem.Size = new Size(327, 42);
             langileakToolStripMenuItem.Text = "Langilea Gehitu";
             langileakToolStripMenuItem.Click += langileakToolStripMenuItem_Click;
+            // 
+            // langileaAldatuToolStripMenuItem
+            // 
+            langileaAldatuToolStripMenuItem.Image = (Image)resources.GetObject("langileaAldatuToolStripMenuItem.Image");
+            langileaAldatuToolStripMenuItem.Name = "langileaAldatuToolStripMenuItem";
+            langileaAldatuToolStripMenuItem.Size = new Size(327, 42);
+            langileaAldatuToolStripMenuItem.Text = "Langilea Aldatu";
+            langileaAldatuToolStripMenuItem.Click += langileaAldatuToolStripMenuItem_Click;
             // 
             // langileakKenduToolStripMenuItem
             // 
@@ -504,5 +508,6 @@ namespace Erronka_Interfazak
         private ToolStripMenuItem   langileakGehituToolStripMenuItem;
         private ToolStripMenuItem   langileakToolStripMenuItem;
         private ToolStripMenuItem   langileakKenduToolStripMenuItem;
+        private ToolStripMenuItem langileaAldatuToolStripMenuItem;
     }
 }

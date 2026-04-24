@@ -31,10 +31,13 @@ namespace Erronka_Interfazak
                 using MySqlDataReader reader = cmd.ExecuteReader();
 
                 var idak = new List<int>();
+                var mintegiaIdak = new List<int?>();
 
                 while (reader.Read())
                 {
                     idak.Add(Convert.ToInt32(reader["ID_ERABILTZAILEA"]));
+                    int ordinal = reader.GetOrdinal("ID_MINTEGIA");
+                    mintegiaIdak.Add(reader.IsDBNull(ordinal) ? (int?)null : Convert.ToInt32(reader["ID_MINTEGIA"]));
                     string izena     = reader["IZENA"].ToString()!;
                     string rola      = reader["ROLA"].ToString()!;
                     string emaila    = reader["EMAILA"].ToString()!;
@@ -42,7 +45,7 @@ namespace Erronka_Interfazak
                     zerrenda.Add(new Erabiltzailea(izena, rola, emaila, pasahitza));
                 }
 
-                dgvLangileak.DataSource = ZerrendaDataTable(zerrenda, idak);
+                dgvLangileak.DataSource = ZerrendaDataTable(zerrenda, idak, mintegiaIdak);
             }
             catch (Exception ex)
             {
@@ -51,7 +54,7 @@ namespace Erronka_Interfazak
             }
         }
 
-        private DataTable ZerrendaDataTable(List<Erabiltzailea> zerrenda, List<int> idak)
+        private DataTable ZerrendaDataTable(List<Erabiltzailea> zerrenda, List<int> idak, List<int?> mintegiaIdak)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID_Erabiltzailea", typeof(int));
@@ -59,6 +62,7 @@ namespace Erronka_Interfazak
             dt.Columns.Add("Rola");
             dt.Columns.Add("Emaila");
             dt.Columns.Add("Pasahitza");
+            dt.Columns.Add("ID_Mintegia", typeof(int));
 
             for (int i = 0; i < zerrenda.Count; i++)
             {
@@ -68,6 +72,7 @@ namespace Erronka_Interfazak
                 row["Rola"]             = zerrenda[i].Rola;
                 row["Emaila"]           = zerrenda[i].Emaila;
                 row["Pasahitza"]        = zerrenda[i].Pasahitza;
+                row["ID_Mintegia"]      = mintegiaIdak[i].HasValue ? (object)mintegiaIdak[i]! : DBNull.Value;
                 dt.Rows.Add(row);
             }
 

@@ -75,12 +75,7 @@ namespace Erronka_Interfazak
             }
         }
 
-        private void FSarrera_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FSarrera_FormClosed(object sender, FormClosedEventArgs e)
+        private void butitxi_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }

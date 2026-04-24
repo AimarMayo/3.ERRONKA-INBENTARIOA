@@ -68,7 +68,21 @@ namespace Erronka_Interfazak
 
                 if (!reader.Read())
                 {
-                    lblemaitza.Text = "Ez da gailurik aurkitu ID horrekin.";
+                    reader.Close();
+                    if (Saioa.Rola == "Mintegiburua")
+                    {
+                        string queryEgiaztatu = "SELECT COUNT(*) FROM GAILUA WHERE ID_GAILUA = @id";
+                        using MySqlCommand cmdEgiaztatu = new MySqlCommand(queryEgiaztatu, DBKonexioa.con);
+                        cmdEgiaztatu.Parameters.AddWithValue("@id", id);
+                        int kopurua = Convert.ToInt32(cmdEgiaztatu.ExecuteScalar());
+                        lblemaitza.Text = kopurua > 0
+                            ? "Gailu hori ez da zure mintegikoa."
+                            : "Ez da gailurik aurkitu ID horrekin.";
+                    }
+                    else
+                    {
+                        lblemaitza.Text = "Ez da gailurik aurkitu ID horrekin.";
+                    }
                     lblemaitza.ForeColor = Color.Red;
                     butkonpontzera.Enabled = false;
                     _gailua = null;
@@ -81,6 +95,15 @@ namespace Erronka_Interfazak
                     reader["KOKALEKUA"].ToString()!,
                     reader["EGOERA"].ToString()!,
                     Convert.ToDateTime(reader["EROSTEDATA"]));
+
+                if (_gailua.Egoera == "matxuratuta")
+                {
+                    lblemaitza.Text = $"ID: {_gailua.Id}  |  {_gailua.Marka}  — dagoeneko matxuratuta dago, ezin da berriro bidali.";
+                    lblemaitza.ForeColor = Color.Red;
+                    butkonpontzera.Enabled = false;
+                    _gailua = null;
+                    return;
+                }
 
                 lblemaitza.Text = $"ID: {_gailua.Id}  |  {_gailua.Marka}  |  {_gailua.Kokalekua}  |  {_gailua.Egoera}";
                 lblemaitza.ForeColor = Color.Black;

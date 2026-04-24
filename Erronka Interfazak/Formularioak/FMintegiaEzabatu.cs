@@ -105,6 +105,14 @@ namespace Erronka_Interfazak
                 butezabatu.Enabled = false;
                 _idMintegia = -1;
             }
+            catch (MySqlException ex) when (ex.Number == 1451)
+            {
+                MessageBox.Show(
+                    "Ezin da mintegia ezabatu.\n\n" +
+                    "Mintegiak oraindik langileak edo gailuak ditu lotuta.\n" +
+                    "Lehenik, mintegiarekin erlazionatutako langile eta gailu guztiak ezabatu edo aldatu behar dituzu.",
+                    "Ezin da ezabatu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             catch (Exception ex)
             {
                 MessageBox.Show("Errorea ezabatzean: " + ex.Message, "Errorea",

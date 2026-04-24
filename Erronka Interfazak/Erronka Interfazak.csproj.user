@@ -28,6 +28,9 @@
     <Compile Update="Formularioak\FKonponduta.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Formularioak\FLangileaAldatu.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Formularioak\FLangileaEzabatu.cs">
       <SubType>Form</SubType>
     </Compile>

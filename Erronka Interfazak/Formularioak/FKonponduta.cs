@@ -74,7 +74,23 @@ namespace Erronka_Interfazak
 
                 if (!reader.Read())
                 {
-                    lblemaitza.Text = "Ez da inzidentziarik aurkitu ID horrekin edo gailua ez dago matxuratuta.";
+                    reader.Close();
+                    if (Saioa.Rola == "Mintegiburua")
+                    {
+                        string queryEgiaztatu = @"SELECT COUNT(*) FROM INZIDENTZIAK i
+                                                  JOIN GAILUA g ON g.ID_GAILUA = i.ID_GAILUA
+                                                  WHERE i.ID_INZIDENTZIA = @id AND g.EGOERA = 'matxuratuta'";
+                        using MySqlCommand cmdEgiaztatu = new MySqlCommand(queryEgiaztatu, DBKonexioa.con);
+                        cmdEgiaztatu.Parameters.AddWithValue("@id", id);
+                        int kopurua = Convert.ToInt32(cmdEgiaztatu.ExecuteScalar());
+                        lblemaitza.Text = kopurua > 0
+                            ? "Inzidentzia hori ez da zure mintegikoa."
+                            : "Ez da inzidentziarik aurkitu ID horrekin edo gailua ez dago matxuratuta.";
+                    }
+                    else
+                    {
+                        lblemaitza.Text = "Ez da inzidentziarik aurkitu ID horrekin edo gailua ez dago matxuratuta.";
+                    }
                     lblemaitza.ForeColor = Color.Red;
                     butkonpondu.Enabled = false;
                     _gailua = null;

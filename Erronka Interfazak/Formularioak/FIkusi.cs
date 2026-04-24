@@ -25,6 +25,7 @@ namespace Erronka_Interfazak
                 DBKonexioa.konektatu();
 
                 List<Gailua> zerrenda = new List<Gailua>();
+                List<int?> mintegiaIdak = new List<int?>();
 
                 string query = @"SELECT g.*, o.RAM, o.ROM, o.CPU, i.KOLORETAKOA
                                  FROM GAILUA g
@@ -40,6 +41,9 @@ namespace Erronka_Interfazak
                     string kokalekua  = reader["KOKALEKUA"].ToString()!;
                     string egoera     = reader["EGOERA"].ToString()!;
                     DateTime erosteData = Convert.ToDateTime(reader["EROSTEDATA"]);
+
+                    int mintegiaOrdinal = reader.GetOrdinal("ID_MINTEGIA");
+                    mintegiaIdak.Add(reader.IsDBNull(mintegiaOrdinal) ? (int?)null : Convert.ToInt32(reader["ID_MINTEGIA"]));
 
                     int ramOrdinal          = reader.GetOrdinal("RAM");
                     int koloretakoaOrdinal  = reader.GetOrdinal("KOLORETAKOA");
@@ -65,7 +69,7 @@ namespace Erronka_Interfazak
                     zerrenda.Add(gailua);
                 }
 
-                dgvGailuak.DataSource = ZerrendaDataTable(zerrenda);
+                dgvGailuak.DataSource = ZerrendaDataTable(zerrenda, mintegiaIdak);
             }
             catch (Exception ex)
             {
@@ -74,7 +78,7 @@ namespace Erronka_Interfazak
             }
         }
 
-        private DataTable ZerrendaDataTable(List<Gailua> zerrenda)
+        private DataTable ZerrendaDataTable(List<Gailua> zerrenda, List<int?> mintegiaIdak)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("ID",          typeof(int));
@@ -87,15 +91,18 @@ namespace Erronka_Interfazak
             dt.Columns.Add("ROM",         typeof(int));
             dt.Columns.Add("CPU");
             dt.Columns.Add("Koloretakoa", typeof(bool));
+            dt.Columns.Add("ID_Mintegia", typeof(int));
 
-            foreach (Gailua g in zerrenda)
+            for (int idx = 0; idx < zerrenda.Count; idx++)
             {
+                Gailua g = zerrenda[idx];
                 DataRow row = dt.NewRow();
                 row["ID"]        = g.Id;
                 row["Marka"]     = g.Marka;
                 row["Kokalekua"] = g.Kokalekua;
                 row["Egoera"]    = g.Egoera;
                 row["ErosteData"] = g.ErosteData1;
+                row["ID_Mintegia"] = mintegiaIdak[idx].HasValue ? (object)mintegiaIdak[idx]! : DBNull.Value;
 
                 if (g is Ordenagailua o)
                 {
@@ -106,7 +113,7 @@ namespace Erronka_Interfazak
                 }
                 else if (g is Inprimagailua i)
                 {
-                    row["Mota"]       = "Inprimagailua";
+                    row["Mota"]        = "Inprimagailua";
                     row["Koloretakoa"] = i.Koloretakoa;
                 }
                 else

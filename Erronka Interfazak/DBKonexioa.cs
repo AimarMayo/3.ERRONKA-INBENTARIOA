@@ -1,9 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Erronka_Interfazak
 
@@ -25,11 +21,6 @@ namespace Erronka_Interfazak
             {
 
             }
-        }
-        public static void deskonektatu()
-        {
-            if (con != null && con.State != System.Data.ConnectionState.Closed)
-                con.Close();
         }
     }
 }

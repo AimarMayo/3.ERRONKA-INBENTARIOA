@@ -72,7 +72,6 @@ namespace Erronka_Interfazak
             panela.Name = "panela";
             panela.Size = new Size(1317, 772);
             panela.TabIndex = 0;
-            panela.Paint += panela_Paint;
             // 
             // lblsartu
             // 
@@ -193,6 +192,7 @@ namespace Erronka_Interfazak
             //
             // cmbMintegia
             //
+            cmbMintegia.BackColor = Color.White;
             cmbMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbMintegia.Location = new Point(180, 155);

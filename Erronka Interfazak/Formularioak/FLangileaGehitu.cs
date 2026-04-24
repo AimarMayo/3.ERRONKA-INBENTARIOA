@@ -94,6 +94,20 @@ namespace Erronka_Interfazak
                     }
                 }
 
+                if (erabiltzailea.Rola == "Mintegiburua")
+                {
+                    string queryMintegiburua = "SELECT COUNT(*) FROM ERABILTZAILEA WHERE ROLA = 'Mintegiburua' AND ID_MINTEGIA = @idmintegia";
+                    using MySqlCommand cmdMintegiburua = new MySqlCommand(queryMintegiburua, DBKonexioa.con);
+                    cmdMintegiburua.Parameters.AddWithValue("@idmintegia", mintegia.Id);
+                    int kopurua = Convert.ToInt32(cmdMintegiburua.ExecuteScalar());
+                    if (kopurua > 0)
+                    {
+                        MessageBox.Show($"'{mintegia.Izena}' mintegiak dagoeneko badu Mintegiburua bat.\nLehenik kendu edo aldatu orain daukan Mintegiburua.", "Abisua",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                }
+
                 string query = @"INSERT INTO ERABILTZAILEA (IZENA, EMAILA, ROLA, PASAHITZA, ID_MINTEGIA)
                                  VALUES (@izena, @emaila, @rola, @pasahitza, @idmintegia)";
 
@@ -128,6 +142,5 @@ namespace Erronka_Interfazak
             }
         }
 
-        private void panela_Paint(object sender, PaintEventArgs e) { }
     }
 }

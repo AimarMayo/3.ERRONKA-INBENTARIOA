@@ -112,21 +112,71 @@ namespace Erronka_Interfazak
             {
                 DBKonexioa.konektatu();
 
-                string deleteInzidentzia = "DELETE FROM INZIDENTZIAK WHERE ID_INZIDENTZIA = @id";
-                using (MySqlCommand cmd = new MySqlCommand(deleteInzidentzia, DBKonexioa.con))
+                int idErabiltzailea;
+                string queryUserId = "SELECT ID_ERABILTZAILEA FROM ERABILTZAILEA WHERE EMAILA = @emaila";
+                using (MySqlCommand cmd = new MySqlCommand(queryUserId, DBKonexioa.con))
                 {
-                    cmd.Parameters.AddWithValue("@id", _inzidentziaId);
+                    cmd.Parameters.AddWithValue("@emaila", Saioa.Emaila);
+                    idErabiltzailea = Convert.ToInt32(cmd.ExecuteScalar());
+                }
+
+                string queryMota = @"SELECT CASE
+                                         WHEN o.ID_GAILUA IS NOT NULL THEN 'Ordenagailua'
+                                         WHEN i.ID_GAILUA IS NOT NULL THEN 'Inprimagailua'
+                                         ELSE 'Gailua' END AS MOTA
+                                     FROM GAILUA g
+                                     LEFT JOIN ORDENAGAILUA o ON o.ID_GAILUA = g.ID_GAILUA
+                                     LEFT JOIN INPRIMAGAILUA i ON i.ID_GAILUA = g.ID_GAILUA
+                                     WHERE g.ID_GAILUA = @idgailua";
+                string mota;
+                using (MySqlCommand cmd = new MySqlCommand(queryMota, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@idgailua", _gailua.Id);
+                    mota = cmd.ExecuteScalar()?.ToString() ?? "Gailua";
+                }
+
+                string moveGailua = @"INSERT INTO EZABATUTAKO_GAILUA (marka, kokalekua, mota, erostedata, ezabatze_data, id_erabiltzailea)
+                                      VALUES (@marka, @kokalekua, @mota, @erostedata, @ezabatze_data, @id_erabiltzailea)";
+                using (MySqlCommand cmd = new MySqlCommand(moveGailua, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@marka", _gailua.Marka);
+                    cmd.Parameters.AddWithValue("@kokalekua", _gailua.Kokalekua);
+                    cmd.Parameters.AddWithValue("@mota", mota);
+                    cmd.Parameters.AddWithValue("@erostedata", _gailua.ErosteData1);
+                    cmd.Parameters.AddWithValue("@ezabatze_data", DateTime.Today);
+                    cmd.Parameters.AddWithValue("@id_erabiltzailea", idErabiltzailea);
                     cmd.ExecuteNonQuery();
                 }
 
-                string updateGailua = "UPDATE GAILUA SET EGOERA = 'erabilgarri' WHERE ID_GAILUA = @id";
-                using (MySqlCommand cmd = new MySqlCommand(updateGailua, DBKonexioa.con))
+                string deleteInzidentziak = "DELETE FROM INZIDENTZIAK WHERE ID_GAILUA = @idgailua";
+                using (MySqlCommand cmd = new MySqlCommand(deleteInzidentziak, DBKonexioa.con))
                 {
-                    cmd.Parameters.AddWithValue("@id", _gailua.Id);
+                    cmd.Parameters.AddWithValue("@idgailua", _gailua.Id);
                     cmd.ExecuteNonQuery();
                 }
 
-                MessageBox.Show("Inzidentzia behar bezala ezabatu da.", "Ondo",
+                string deleteOrdenagailua = "DELETE FROM ORDENAGAILUA WHERE ID_GAILUA = @idgailua";
+                using (MySqlCommand cmd = new MySqlCommand(deleteOrdenagailua, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@idgailua", _gailua.Id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                string deleteInprimagailua = "DELETE FROM INPRIMAGAILUA WHERE ID_GAILUA = @idgailua";
+                using (MySqlCommand cmd = new MySqlCommand(deleteInprimagailua, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@idgailua", _gailua.Id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                string deleteGailua = "DELETE FROM GAILUA WHERE ID_GAILUA = @idgailua";
+                using (MySqlCommand cmd = new MySqlCommand(deleteGailua, DBKonexioa.con))
+                {
+                    cmd.Parameters.AddWithValue("@idgailua", _gailua.Id);
+                    cmd.ExecuteNonQuery();
+                }
+
+                MessageBox.Show("Inzidentzia behar bezala ezabatu da eta gailua ezabatutakoen zerrendara pasa da.", "Ondo",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 txtid.Clear();

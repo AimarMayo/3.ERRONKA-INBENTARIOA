@@ -23,11 +23,11 @@ namespace Erronka_Interfazak
                     break;
 
                 case "Irakaslea":
-                    aRAZOAToolStripMenuItem.Enabled        = false;
+                    aRAZOAToolStripMenuItem.Enabled = false;
                     aDMINISTRARIAToolStripMenuItem.Enabled = false;
-                    gehituToolStripMenuItem.Enabled        = false;
-                    aldatuToolStripMenuItem.Enabled        = false;
-                    ezabatuToolStripMenuItem.Enabled       = false;
+                    gehituToolStripMenuItem.Enabled = false;
+                    aldatuToolStripMenuItem.Enabled = false;
+                    ezabatuToolStripMenuItem.Enabled = false;
                     break;
             }
         }
@@ -112,16 +112,6 @@ namespace Erronka_Interfazak
 
         // ── Gertaerak ─────────────────────────────────────────────────────────
 
-        private void aRAZOAToolStripMenuItem_Click(object sender, EventArgs e) { }
-
-        private void panosoa_Paint(object sender, PaintEventArgs e) { }
-
-        private void textBox2_TextChanged(object sender, EventArgs e) { }
-
-        private void menstriMenua_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
-
-        private void lblerabiltzailepertsonala_Click(object sender, EventArgs e) { }
-
         private void irtenSarreraraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FSarrera fsarrera = new FSarrera();
@@ -133,8 +123,6 @@ namespace Erronka_Interfazak
         {
             Application.Exit();
         }
-
-        private void aDMINISTRARIAToolStripMenuItem_Click(object sender, EventArgs e) { }
 
         private void gehituToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -281,6 +269,16 @@ namespace Erronka_Interfazak
         {
             panmenua.Controls.Clear();
             FEzabatuakIkusi f = new FEzabatuakIkusi();
+            f.TopLevel = false;
+            f.Dock = DockStyle.Fill;
+            panmenua.Controls.Add(f);
+            f.Show();
+        }
+
+        private void langileaAldatuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            panmenua.Controls.Clear();
+            FLangileaAldatu f = new FLangileaAldatu();
             f.TopLevel = false;
             f.Dock = DockStyle.Fill;
             panmenua.Controls.Add(f);

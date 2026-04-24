@@ -28,14 +28,6 @@ namespace Erronka_Interfazak
                 ref preference, sizeof(int));
         }
 
-        private void txtPasahitzBerria_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void lblpasahitzaaldatu_Click(object sender, EventArgs e)
-        {
-        }
-
         private void butaldatu_Click(object sender, EventArgs e)
         {
             Erabiltzailea erabiltzailea = new Erabiltzailea("", "", emaila, txtPasahitzBerria.Text);

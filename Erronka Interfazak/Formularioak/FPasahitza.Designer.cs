@@ -48,7 +48,6 @@
             lblpasahitzaaldatu.Size = new Size(312, 46);
             lblpasahitzaaldatu.TabIndex = 0;
             lblpasahitzaaldatu.Text = "PASAHITZ BERRIA";
-            lblpasahitzaaldatu.Click += lblpasahitzaaldatu_Click;
             // 
             // lblerabiltzailea
             // 
@@ -75,7 +74,6 @@
             txtPasahitzBerria.Name = "txtPasahitzBerria";
             txtPasahitzBerria.Size = new Size(335, 31);
             txtPasahitzBerria.TabIndex = 4;
-            txtPasahitzBerria.TextChanged += txtPasahitzBerria_TextChanged;
             // 
             // lblPasahitzBerria
             // 

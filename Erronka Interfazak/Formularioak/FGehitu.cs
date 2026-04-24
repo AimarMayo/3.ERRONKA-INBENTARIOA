@@ -266,7 +266,6 @@ namespace Erronka_Interfazak
             this.Close();
         }
 
-        private void panela_Paint(object sender, PaintEventArgs e) { }
 
         private void panDatuak_Paint(object sender, PaintEventArgs e)
         {

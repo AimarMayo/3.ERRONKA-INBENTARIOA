@@ -7,6 +7,7 @@ namespace Erronka_Interfazak
     public partial class FAldatu : Form
     {
         private Gailua? _gailua = null;
+        private int _idMintegia = 0;
 
         public FAldatu()
         {
@@ -20,8 +21,53 @@ namespace Erronka_Interfazak
             this.Load += (s, e) =>
             {
                 ErdiratuKontrolak();
+                KargatuMintegia();
                 DesGaituDena();
             };
+        }
+
+        private void KargatuMintegia()
+        {
+            try
+            {
+                DBKonexioa.konektatu();
+
+                if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase))
+                {
+                    lblMintegiaBalio.Visible = false;
+                    cmbMintegia.Visible = true;
+
+                    using MySqlCommand cmd = new MySqlCommand(
+                        "SELECT ID_MINTEGIA, IZENA FROM MINTEGIA ORDER BY IZENA", DBKonexioa.con);
+                    using MySqlDataReader dr = cmd.ExecuteReader();
+                    cmbMintegia.Items.Clear();
+                    while (dr.Read())
+                        cmbMintegia.Items.Add(new Mintegia(dr.GetInt32("ID_MINTEGIA"), dr.GetString("IZENA")));
+                    cmbMintegia.DisplayMember = "Izena";
+                }
+                else if (Saioa.Rola.Equals("Mintegiburua", StringComparison.OrdinalIgnoreCase))
+                {
+                    cmbMintegia.Visible = false;
+                    lblMintegiaBalio.Visible = true;
+
+                    using MySqlCommand cmd = new MySqlCommand(
+                        "SELECT IZENA FROM MINTEGIA WHERE ID_MINTEGIA = @idmintegia", DBKonexioa.con);
+                    cmd.Parameters.AddWithValue("@idmintegia", Saioa.MintegiaId);
+                    object? result = cmd.ExecuteScalar();
+                    lblMintegiaBalio.Text = result?.ToString() ?? "";
+                }
+                else
+                {
+                    lblMintegia.Visible = false;
+                    lblMintegiaBalio.Visible = false;
+                    cmbMintegia.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Errorea mintegia kargatzean: " + ex.Message, "Errorea",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void DesGaituDena()
@@ -33,6 +79,7 @@ namespace Erronka_Interfazak
             rbInprimagailua.Enabled = false;
             panOrdenagailua.Enabled = false;
             panInprimagailua.Enabled = false;
+            cmbMintegia.Enabled = false;
             butaldatu.Enabled = false;
             panOrdenagailua.Visible = false;
             panInprimagailua.Visible = false;
@@ -45,6 +92,8 @@ namespace Erronka_Interfazak
             dtpErosteData.Enabled = true;
             panOrdenagailua.Enabled = true;
             panInprimagailua.Enabled = true;
+            if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase))
+                cmbMintegia.Enabled = true;
             butaldatu.Enabled = true;
         }
 
@@ -101,6 +150,9 @@ namespace Erronka_Interfazak
                 string egoera = reader["EGOERA"].ToString()!;
                 DateTime erosteData = Convert.ToDateTime(reader["EROSTEDATA"]);
 
+                int mintegiaOrdinal = reader.GetOrdinal("ID_MINTEGIA");
+                _idMintegia = reader.IsDBNull(mintegiaOrdinal) ? 0 : Convert.ToInt32(reader["ID_MINTEGIA"]);
+
                 int ramOrdinal = reader.GetOrdinal("RAM");
                 int koloretakoaOrdinal = reader.GetOrdinal("KOLORETAKOA");
 
@@ -144,6 +196,18 @@ namespace Erronka_Interfazak
                 txtKokalekua.Text = _gailua.Kokalekua;
                 dtpErosteData.Value = _gailua.ErosteData1;
 
+                if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase))
+                {
+                    foreach (object item in cmbMintegia.Items)
+                    {
+                        if (item is Mintegia m && m.Id == _idMintegia)
+                        {
+                            cmbMintegia.SelectedItem = m;
+                            break;
+                        }
+                    }
+                }
+
                 GaituDatuak();
                 rbOrdenagailua.Enabled = false;
                 rbInprimagailua.Enabled = false;
@@ -185,6 +249,14 @@ namespace Erronka_Interfazak
                 }
             }
 
+            if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase) &&
+                cmbMintegia.SelectedIndex == -1)
+            {
+                MessageBox.Show("Mesedez, hautatu mintegia.", "Abisua",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             _gailua.Marka = txtMarka.Text.Trim();
             _gailua.Kokalekua = txtKokalekua.Text.Trim();
             _gailua.ErosteData1 = dtpErosteData.Value.Date;
@@ -200,18 +272,25 @@ namespace Erronka_Interfazak
                 inp.Koloretakoa = rbKoloretakuaBai.Checked;
             }
 
+            int idMintegia = Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase)
+                ? ((Mintegia)cmbMintegia.SelectedItem!).Id
+                : Saioa.Rola.Equals("Mintegiburua", StringComparison.OrdinalIgnoreCase)
+                    ? Saioa.MintegiaId
+                    : _idMintegia;
+
             try
             {
                 DBKonexioa.konektatu();
 
                 string updateGailua = @"UPDATE GAILUA
-                                        SET MARKA = @marka, KOKALEKUA = @kokalekua, EROSTEDATA = @erostedata
+                                        SET MARKA = @marka, KOKALEKUA = @kokalekua, EROSTEDATA = @erostedata, ID_MINTEGIA = @idmintegia
                                         WHERE ID_GAILUA = @id";
                 using (MySqlCommand cmd = new MySqlCommand(updateGailua, DBKonexioa.con))
                 {
                     cmd.Parameters.AddWithValue("@marka", _gailua.Marka);
                     cmd.Parameters.AddWithValue("@kokalekua", _gailua.Kokalekua);
                     cmd.Parameters.AddWithValue("@erostedata", _gailua.ErosteData1);
+                    cmd.Parameters.AddWithValue("@idmintegia", idMintegia);
                     cmd.Parameters.AddWithValue("@id", _gailua.Id);
                     cmd.ExecuteNonQuery();
                 }

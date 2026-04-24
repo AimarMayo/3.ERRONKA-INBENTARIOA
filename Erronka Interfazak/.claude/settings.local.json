@@ -3,7 +3,9 @@
     "allow": [
       "Bash(dotnet restore:*)",
       "Bash(dotnet build:*)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Read(//tmp/**)",
+      "Bash(grep *)"
     ]
   }
 }
