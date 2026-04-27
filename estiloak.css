@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+.navbar-brand span {
+  font-size: 1.2rem;
+}
+
+.hero-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.08) !important;
+}
+
+.rounded-4 {
+  border-radius: 1rem;
+}
+
+.list-group-item {
+  background: transparent;
+  border: none;
+  color: #495057;
+}
+
+.carousel img {
+  object-fit: cover;
+  max-height: 520px;
+}
+
+footer {
+  margin-top: 0;
+}
+.form-control {
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #dee2e6;
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+  border-color: #86b7fe;
+}

@@ -785,23 +785,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aimar\\.nuget\\packages\\": {},
+    "C:\\Users\\iniet\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Erronka Interfazak.csproj",
+      "projectUniqueName": "C:\\Users\\iniet\\Desktop\\3.ERRONKA-INBENTARIOA\\Erronka Interfazak\\Erronka Interfazak.csproj",
       "projectName": "Erronka Interfazak",
-      "projectPath": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\Erronka Interfazak.csproj",
-      "packagesPath": "C:\\Users\\aimar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aimar\\Desktop\\Fp\\Erronka 3\\Erronka Interfazak\\obj\\",
+      "projectPath": "C:\\Users\\iniet\\Desktop\\3.ERRONKA-INBENTARIOA\\Erronka Interfazak\\Erronka Interfazak.csproj",
+      "packagesPath": "C:\\Users\\iniet\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\iniet\\Desktop\\3.ERRONKA-INBENTARIOA\\Erronka Interfazak\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\aimar\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\iniet\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -863,7 +863,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
