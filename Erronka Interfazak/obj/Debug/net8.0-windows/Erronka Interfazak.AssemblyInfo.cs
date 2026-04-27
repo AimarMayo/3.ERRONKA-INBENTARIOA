@@ -14,7 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
+<<<<<<< Updated upstream
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c2b61904ed88860bb517dc483fc36c0b165ae836")]
+=======
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+80f434bd142d025cd97fa3fb5f7fcec2a07b2752")]
+>>>>>>> Stashed changes
 [assembly: System.Reflection.AssemblyProductAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Erronka Interfazak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

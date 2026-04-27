@@ -5,11 +5,21 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Inzidentzia ezabatzeko formularioa. ID bidez inzidentzia bilatzen du, gailua ezabatutakoen zerrendara
+    /// mugitzen du eta inzidentzia eta gailua datu-basetik ezabatzen ditu.
+    /// </summary>
     public partial class FInzidentziaEzabatu : Form
     {
+        /// <summary>Uneko bilatutako inzidentziaren identifikatzailea.</summary>
         private int _inzidentziaId = -1;
+
+        /// <summary>Inzidentziari lotutako gailua.</summary>
         private Gailua? _gailua = null;
 
+        /// <summary>
+        /// FInzidentziaEzabatu formularioa hasieratzen du eta gertaerak lotzen ditu.
+        /// </summary>
         public FInzidentziaEzabatu()
         {
             InitializeComponent();
@@ -25,6 +35,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -37,6 +50,11 @@ namespace Erronka_Interfazak
             lblizenburua.Top  = panDatuak.Top - lblizenburua.Height - 20;
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez inzidentzia matxuratutako gailuekin bilatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butbilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtid.Text.Trim(), out int id))
@@ -98,6 +116,12 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Ezabatu botoia sakatzean inzidentzia ezabatzen du, gailua ezabatutakoen zerrendara mugitzen du
+        /// eta lotutako inzidentzia eta gailua datu-basetik kentzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butezabatu_Click(object sender, EventArgs e)
         {
             if (_gailua == null || _inzidentziaId == -1) return;

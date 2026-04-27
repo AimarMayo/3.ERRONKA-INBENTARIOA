@@ -4,9 +4,17 @@ using System;
 namespace Erronka_Interfazak
 
 {
+    /// <summary>
+    /// MySQL datu-basearekin konexioa kudeatzen duen klase estatikoa.
+    /// </summary>
     public static class DBKonexioa
     {
+        /// <summary>Datu-basearekin partekatutako konexio-instantzia.</summary>
         public static MySqlConnection? con;
+
+        /// <summary>
+        /// Datu-basearekin konexioa irekitzen du, oraindik irekita ez badago.
+        /// </summary>
         public static void konektatu()
         {
             try

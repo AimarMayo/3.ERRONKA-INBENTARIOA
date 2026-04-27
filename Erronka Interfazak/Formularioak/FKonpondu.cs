@@ -6,10 +6,18 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Gailua matxuratuta markatzeko formularioa. ID bidez gailua bilatzen du, egoera 'matxuratuta' ezartzen du
+    /// eta inzidentzia berri bat sortzen du.
+    /// </summary>
     public partial class FKonpondu : Form
     {
+        /// <summary>Matxuratuta markatuko den gailua.</summary>
         private Gailua? _gailua = null;
 
+        /// <summary>
+        /// FKonpondu formularioa hasieratzen du eta gertaerak lotzen ditu.
+        /// </summary>
         public FKonpondu()
         {
             InitializeComponent();
@@ -25,6 +33,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu eta forma biribilak aplikatzen ditu.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -40,6 +51,11 @@ namespace Erronka_Interfazak
             AplikatuLabelBiribilak();
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez gailua bilatzen du eta matxuratuta dagoen ala ez egiaztatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butbilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtid.Text.Trim(), out int id))
@@ -116,6 +132,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Konpontzera botoia sakatzean gailuaren egoera 'matxuratuta' ezartzen du eta inzidentzia berri bat sortzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butkonpontzera_Click(object sender, EventArgs e)
         {
             if (_gailua == null) return;
@@ -172,6 +193,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Izenburuko label-ari ertz biribila aplikatzen dio.
+        /// </summary>
         private void AplikatuLabelBiribilak()
         {
             int r = 10;
@@ -186,6 +210,9 @@ namespace Erronka_Interfazak
             lblizenburua.Region = new Region(path);
         }
 
+        /// <summary>
+        /// Datu-panelari ertz biribila aplikatzen dio.
+        /// </summary>
         private void AplikatuBiribilak()
         {
             int r = 10;

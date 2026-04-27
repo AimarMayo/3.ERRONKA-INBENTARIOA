@@ -5,10 +5,18 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Mintegia ezabatzeko formularioa. ID bidez mintegia bilatzen du eta berrestea eskatu ondoren datu-basetik ezabatzen du.
+    /// Mintegiak lotutako langileak edo gailuak baditu, ezabatzea blokeatzen du.
+    /// </summary>
     public partial class FMintegiaEzabatu : Form
     {
+        /// <summary>Uneko bilatutako mintegiaren identifikatzailea.</summary>
         private int _idMintegia = -1;
 
+        /// <summary>
+        /// FMintegiaEzabatu formularioa hasieratzen du eta gertaerak lotzen ditu.
+        /// </summary>
         public FMintegiaEzabatu()
         {
             InitializeComponent();
@@ -21,6 +29,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -33,6 +44,11 @@ namespace Erronka_Interfazak
             lblizenburua.Top = panDatuak.Top - lblizenburua.Height - 20;
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez mintegia datu-basetik bilatzen du eta emaitza erakusten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butbilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtid.Text.Trim(), out int id))
@@ -78,6 +94,12 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Ezabatu botoia sakatzean baieztapena eskatzen du eta mintegia datu-basetik ezabatzen du.
+        /// FK murrizketa (errore 1451) aktibatzen bada, lotutako elementuak daudela ohartarazten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butezabatu_Click(object sender, EventArgs e)
         {
             if (_idMintegia == -1) return;

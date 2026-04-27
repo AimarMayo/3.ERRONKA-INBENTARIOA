@@ -3,8 +3,17 @@ using System.Windows.Forms;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Erabiltzaileari baieztapen-galdera egiteko elkarrizketa-koadro pertsonalizatua sortzeko klase estatikoa.
+    /// </summary>
     public static class Galdera
     {
+        /// <summary>
+        /// BAI/EZ elkarrizketa-koadroa erakusten du eta erabiltzailearen erantzuna itzultzen du.
+        /// </summary>
+        /// <param name="mezua">Erakutsi beharreko galdera-testua.</param>
+        /// <param name="izenburua">Leihoko izenburua.</param>
+        /// <returns><see cref="DialogResult.Yes"/> BAI aukeratu bada; <see cref="DialogResult.No"/> EZ aukeratu bada.</returns>
         public static DialogResult Galdetu(string mezua, string izenburua)
         {
             using Form form = new Form();

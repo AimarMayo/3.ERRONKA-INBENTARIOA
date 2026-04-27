@@ -454,6 +454,7 @@ namespace Erronka_Interfazak
             Name = "FMenua";
             Text = "FMenua";
             WindowState = FormWindowState.Maximized;
+            Load += FMenua_Load_1;
             panosoa.ResumeLayout(false);
             panosoa.PerformLayout();
             panmenua.ResumeLayout(false);

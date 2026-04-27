@@ -6,11 +6,21 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Gailua konponduta markatzeko formularioa. Inzidentzia ID bidez bilatzen du,
+    /// gailuaren egoera 'erabilgarri' ezartzen du eta inzidentziaren konpontze-data gordetzen du.
+    /// </summary>
     public partial class FKonponduta : Form
     {
+        /// <summary>Konponduta markatuko den gailua.</summary>
         private Gailua? _gailua = null;
+
+        /// <summary>Konponduko den inzidentziaren identifikatzailea.</summary>
         private int _inzidentziaId = -1;
 
+        /// <summary>
+        /// FKonponduta formularioa hasieratzen du eta gertaerak lotzen ditu.
+        /// </summary>
         public FKonponduta()
         {
             InitializeComponent();
@@ -29,6 +39,9 @@ namespace Erronka_Interfazak
             panDatuak.Resize += (s, e) => AplikatuBiribilak();
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu eta forma biribilak aplikatzen ditu.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -44,6 +57,11 @@ namespace Erronka_Interfazak
             AplikatuLabelBiribilak();
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez inzidentzia bilatzen du eta gailua matxuratuta dagoen egiaztatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butbilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtid.Text.Trim(), out int id))
@@ -117,6 +135,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Konpondu botoia sakatzean gailuaren egoera 'erabilgarri' ezartzen du eta inzidentziaren konpontze-data gordetzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butkonpondu_Click(object sender, EventArgs e)
         {
             if (_gailua == null) return;

@@ -1,9 +1,12 @@
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Aplikazioaren puntu nagusia. Inbentario kudeaketa sistemarako sarrera-puntua.
+    /// </summary>
     internal static class Program
     {
         /// <summary>
-        ///  The main entry point for the application.
+        /// Aplikazioaren hasiera-puntua. Sarrera formularioa irekitzen du eta aplikazioa exekutatzen du.
         /// </summary>
         [STAThread]
         static void Main()

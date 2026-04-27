@@ -7,12 +7,18 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Gailua gehitzeko formularioa. Ordenagailuak eta inprimagailuak datu-basean txertatzeko aukera ematen du.
+    /// </summary>
     public partial class FGehitu : Form
     {
         [DllImport("kernel32.dll")]
         private static extern bool SetThreadLocale(uint Locale);
         private const uint LCID_EUSKARA = 0x042D;
 
+        /// <summary>
+        /// FGehitu formularioa hasieratzen du, euskara lokalizazioa ezartzen du eta eremuak lotzen ditu.
+        /// </summary>
         public FGehitu()
         {
             SetThreadLocale(LCID_EUSKARA);
@@ -43,6 +49,10 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-basetik mintegiak kargatzen ditu. Administratzaileak combo-box bat ikusten du;
+        /// beste erabiltzaileek beren mintegiaren izena soilik ikusten dute.
+        /// </summary>
         private void KargatuMintegia()
         {
             try
@@ -78,6 +88,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -90,18 +103,33 @@ namespace Erronka_Interfazak
             lblsartu.Top = panDatuak.Top - lblsartu.Height - 20;
         }
 
+        /// <summary>
+        /// Ordenagailua radio-botoia aldatzean ordenagailuen panel espezifikoa erakusten du eta inprimagailuarena ezkutatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void rbOrdenagailua_CheckedChanged(object sender, EventArgs e)
         {
             panOrdenagailua.Visible = rbOrdenagailua.Checked;
             panInprimagailua.Visible = false;
         }
 
+        /// <summary>
+        /// Inprimagailua radio-botoia aldatzean inprimagailuen panel espezifikoa erakusten du eta ordenagailuarena ezkutatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void rbInprimagailua_CheckedChanged(object sender, EventArgs e)
         {
             panInprimagailua.Visible = rbInprimagailua.Checked;
             panOrdenagailua.Visible = false;
         }
 
+        /// <summary>
+        /// Sartu botoia sakatzean eremuak baliozkotzen ditu eta gailua datu-basean txertatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butsartu_Click(object sender, EventArgs e)
         {
             if (Saioa.Rola.Equals("Administratzailea", StringComparison.OrdinalIgnoreCase) && cmbMintegia.SelectedIndex == -1)
@@ -222,6 +250,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Sartu botoia gaitu edo desgaitzen du eremuak beterik dauden ala ez arabera.
+        /// </summary>
         private void EgiaztatuEremuak()
         {
             bool oinarrizkoak = !string.IsNullOrWhiteSpace(txtMarka.Text) &&
@@ -248,6 +279,11 @@ namespace Erronka_Interfazak
             butsartu.Enabled = oinarrizkoak && mintegia && mota && ordenagailuaDatuak && inprimagailuaDatuak;
         }
 
+        /// <summary>
+        /// Atzera botoia sakatzean menu nagusira itzultzen da.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butatzera_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)

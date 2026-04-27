@@ -6,18 +6,32 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Mintegiak ikusteko formularioa. Sistemako mintegi guztiak DataGridView batean erakusten ditu.
+    /// </summary>
     public partial class FMintegiaIkusi : Form
     {
+        /// <summary>
+        /// FMintegiaIkusi formularioa hasieratzen du.
+        /// </summary>
         public FMintegiaIkusi()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Formularioa kargatzean mintegiak kargatzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void FMintegiaIkusi_Load(object sender, EventArgs e)
         {
             KargatuMintegiak();
         }
 
+        /// <summary>
+        /// Datu-basetik mintegi guztiak kargatzen ditu eta DataGridView-an erakusten ditu.
+        /// </summary>
         private void KargatuMintegiak()
         {
             try
@@ -49,6 +63,12 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Mintegien zerrenda DataTable formatura bihurtzen du DataGridView-an erakusteko.
+        /// </summary>
+        /// <param name="zerrenda">Mintegien zerrenda.</param>
+        /// <param name="idak">Bakoitzari dagokion identifikatzaileen zerrenda.</param>
+        /// <returns>Mintegien datuak dituen DataTable bat.</returns>
         private DataTable ZerrendaDataTable(List<Mintegia> zerrenda, List<int> idak)
         {
             DataTable dt = new DataTable();

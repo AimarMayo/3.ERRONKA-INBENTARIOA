@@ -4,8 +4,15 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Mintegia gehitzeko formularioa. Mintegi berri bat datu-basean txertatzeko aukera ematen du,
+    /// izen bikoizketak egiaztatuz.
+    /// </summary>
     public partial class FMintegiaGehitu : Form
     {
+        /// <summary>
+        /// FMintegiaGehitu formularioa hasieratzen du eta karga-gertaerak lotzen ditu.
+        /// </summary>
         public FMintegiaGehitu()
         {
             InitializeComponent();
@@ -14,6 +21,9 @@ namespace Erronka_Interfazak
             this.Load += (s, e) => ErdiratuKontrolak();
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -26,6 +36,11 @@ namespace Erronka_Interfazak
             lblTitulua.Top = panDatuak.Top - lblTitulua.Height - 20;
         }
 
+        /// <summary>
+        /// Gehitu botoia sakatzean izena baliozkotzen du, bikoizketak egiaztatzen ditu eta mintegia datu-basean txertatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butGehitu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtIzena.Text))
@@ -72,6 +87,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Atzera botoia sakatzean menu nagusira itzultzen da.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butAtzera_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)

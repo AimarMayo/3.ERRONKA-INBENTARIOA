@@ -5,6 +5,10 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Pasahitza aldatzeko formularioa. Lehen saioan "123" pasahitz lehenetsia erabiltzen denean automatikoki irekitzen da.
+    /// Gutxienez 8 karaktereko pasahitz berria eskatzen du.
+    /// </summary>
     public partial class FPasahitza : Form
     {
         [DllImport("dwmapi.dll")]
@@ -12,8 +16,13 @@ namespace Erronka_Interfazak
         private const int DWMWA_WINDOW_CORNER_PREFERENCE = 33;
         private const int DWMWCP_ROUND = 2;
 
+        /// <summary>Pasahitza aldatu behar duen erabiltzailearen emaila.</summary>
         private readonly string emaila;
 
+        /// <summary>
+        /// FPasahitza formularioa hasieratzen du eta emaila gordetzen du.
+        /// </summary>
+        /// <param name="emaila">Pasahitza aldatu behar duen erabiltzailearen emaila.</param>
         public FPasahitza(string emaila)
         {
             InitializeComponent();
@@ -21,6 +30,11 @@ namespace Erronka_Interfazak
             txtPasahitzBerria.PasswordChar = '*';
         }
 
+        /// <summary>
+        /// Formularioa kargatzean leihoko ertzak biribilak ezartzen ditu DWM API bidez.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void FPasahitza_Load(object sender, EventArgs e)
         {
             int preference = DWMWCP_ROUND;
@@ -28,6 +42,12 @@ namespace Erronka_Interfazak
                 ref preference, sizeof(int));
         }
 
+        /// <summary>
+        /// Aldatu botoia sakatzean pasahitzaren luzera egiaztatzen du eta datu-basean eguneratzen du.
+        /// Ondoren menu nagusia irekitzen du eta formularioa ixten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butaldatu_Click(object sender, EventArgs e)
         {
             Erabiltzailea erabiltzailea = new Erabiltzailea("", "", emaila, txtPasahitzBerria.Text);

@@ -6,18 +6,32 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Gailuak ikusteko formularioa. Inbentarioko gailu guztiak DataGridView batean erakusten ditu.
+    /// </summary>
     public partial class FIkusi : Form
     {
+        /// <summary>
+        /// FIkusi formularioa hasieratzen du.
+        /// </summary>
         public FIkusi()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Formularioa kargatzean gailuak kargatzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void FIkusi_Load(object sender, EventArgs e)
         {
             KargatuGailuak();
         }
 
+        /// <summary>
+        /// Datu-basetik gailu guztiak kargatzen ditu eta DataGridView-an erakusten ditu.
+        /// </summary>
         private void KargatuGailuak()
         {
             try
@@ -78,6 +92,12 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Gailuen zerrenda DataTable formatura bihurtzen du DataGridView-an erakusteko.
+        /// </summary>
+        /// <param name="zerrenda">Gailuen zerrenda.</param>
+        /// <param name="mintegiaIdak">Bakoitzari dagokion mintegiaren ID zerrenda.</param>
+        /// <returns>Gailuen datuak dituen DataTable bat.</returns>
         private DataTable ZerrendaDataTable(List<Gailua> zerrenda, List<int?> mintegiaIdak)
         {
             DataTable dt = new DataTable();

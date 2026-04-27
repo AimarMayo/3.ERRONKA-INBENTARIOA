@@ -2,14 +2,25 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Saioa hasteko formularioa. Erabiltzaileak emaila eta pasahitza sartuz sisteman sartzen dira.
+    /// </summary>
     public partial class FSarrera : Form
     {
+        /// <summary>
+        /// FSarrera formularioa hasieratzen du eta pasahitz-eremua ezkutatzen du.
+        /// </summary>
         public FSarrera()
         {
             InitializeComponent();
             txtpasahitza.PasswordChar = '*';
         }
 
+        /// <summary>
+        /// Sartu botoia sakatzean datu-basean egiaztapen egiten du eta baliozko saioan menuara igaro edo pasahitz-aldaketa eskatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butsartu_Click(object sender, EventArgs e)
         {
             Erabiltzailea erabiltzailea = new Erabiltzailea("", "", txtemaila.Text.Trim(), txtpasahitza.Text);
@@ -75,6 +86,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Itxi botoia sakatzean aplikazioa ixten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butitxi_Click(object sender, EventArgs e)
         {
             Application.Exit();

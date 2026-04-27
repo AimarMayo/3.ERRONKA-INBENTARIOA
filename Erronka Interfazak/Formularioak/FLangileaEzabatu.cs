@@ -5,10 +5,17 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Langilea ezabatzeko formularioa. ID bidez langilea bilatzen du, berrestea eskatzen du eta datu-basetik ezabatzen du.
+    /// </summary>
     public partial class FLangileaEzabatu : Form
     {
+        /// <summary>Uneko bilatutako langilearen identifikatzailea.</summary>
         private int _idErabiltzailea = -1;
 
+        /// <summary>
+        /// FLangileaEzabatu formularioa hasieratzen du eta gertaerak lotzen ditu.
+        /// </summary>
         public FLangileaEzabatu()
         {
             InitializeComponent();
@@ -21,6 +28,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -33,6 +43,11 @@ namespace Erronka_Interfazak
             lblizenburua.Top = panDatuak.Top - lblizenburua.Height - 20;
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez langilea datu-basetik bilatzen du eta emaitza erakusten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butbilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtid.Text.Trim(), out int id))
@@ -83,6 +98,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Ezabatu botoia sakatzean erabiltzaileari baieztapena eskatzen dio eta langilea datu-basetik ezabatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butezabatu_Click(object sender, EventArgs e)
         {
             if (_idErabiltzailea == -1) return;

@@ -6,18 +6,32 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Langileak ikusteko formularioa. Sistemako langile guztiak DataGridView batean erakusten ditu.
+    /// </summary>
     public partial class FLangileakIkusi : Form
     {
+        /// <summary>
+        /// FLangileakIkusi formularioa hasieratzen du.
+        /// </summary>
         public FLangileakIkusi()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Formularioa kargatzean langileak kargatzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void FLangileakIkusi_Load(object sender, EventArgs e)
         {
             KargatuLangileak();
         }
 
+        /// <summary>
+        /// Datu-basetik langile guztiak kargatzen ditu eta DataGridView-an erakusten ditu.
+        /// </summary>
         private void KargatuLangileak()
         {
             try
@@ -54,6 +68,13 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Langile zerrenda DataTable formatura bihurtzen du DataGridView-an erakusteko.
+        /// </summary>
+        /// <param name="zerrenda">Erabiltzaileen zerrenda.</param>
+        /// <param name="idak">Bakoitzari dagokion identifikatzaileen zerrenda.</param>
+        /// <param name="mintegiaIdak">Bakoitzari dagokion mintegiaren ID zerrenda.</param>
+        /// <returns>Langileen datuak dituen DataTable bat.</returns>
         private DataTable ZerrendaDataTable(List<Erabiltzailea> zerrenda, List<int> idak, List<int?> mintegiaIdak)
         {
             DataTable dt = new DataTable();

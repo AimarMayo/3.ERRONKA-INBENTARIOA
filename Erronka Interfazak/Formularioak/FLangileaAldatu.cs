@@ -4,10 +4,17 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Langilearen datuak aldatzeko formularioa. ID bidez langilea bilatzen du eta bere datuak eguneratzeko aukera ematen du.
+    /// </summary>
     public partial class FLangileaAldatu : Form
     {
+        /// <summary>Uneko bilatutako langilearen identifikatzailea.</summary>
         private int _idLangilea = -1;
 
+        /// <summary>
+        /// FLangileaAldatu formularioa hasieratzen du eta karga-gertaerak lotzen ditu.
+        /// </summary>
         public FLangileaAldatu()
         {
             InitializeComponent();
@@ -21,6 +28,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -33,6 +43,9 @@ namespace Erronka_Interfazak
             lblTitulua.Top = panDatuak.Top - lblTitulua.Height - 20;
         }
 
+        /// <summary>
+        /// Datu-basetik mintegiak kargatzen ditu combo-box-erako.
+        /// </summary>
         private void KargatuMintegiak()
         {
             try
@@ -56,6 +69,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Aldaketa-eremu guztiak desgaitzen ditu bilaketa bat egin arte.
+        /// </summary>
         private void DesGaituEremuak()
         {
             txtIzena.Enabled = false;
@@ -65,6 +81,9 @@ namespace Erronka_Interfazak
             butAldatu.Enabled = false;
         }
 
+        /// <summary>
+        /// Langilea aurkitu ondoren aldaketa-eremuak gaitzen ditu.
+        /// </summary>
         private void GaituEremuak()
         {
             txtIzena.Enabled = true;
@@ -74,6 +93,11 @@ namespace Erronka_Interfazak
             butAldatu.Enabled = true;
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez langilea datu-basetik bilatzen du eta formularioan kargatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butBilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtId.Text.Trim(), out int id))
@@ -135,6 +159,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Aldatu botoia sakatzean eremuak baliozkotzen ditu, email bikoizketak egiaztatzen ditu eta langilearen datuak eguneratzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butAldatu_Click(object sender, EventArgs e)
         {
             if (_idLangilea == -1) return;
@@ -214,6 +243,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Atzera botoia sakatzean menu nagusira itzultzen da.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butAtzera_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)

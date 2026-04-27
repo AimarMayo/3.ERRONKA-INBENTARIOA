@@ -6,14 +6,23 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Aplikazioaren menu nagusia. Erabiltzailearen rolen arabera menuko aukerak gaitzen edo desgaitzen ditu.
+    /// </summary>
     public partial class FMenua : Form
     {
+        /// <summary>
+        /// FMenua formularioa hasieratzen du. Karga-gertaera Designer-ak lotzen du automatikoki.
+        /// </summary>
         public FMenua()
         {
             InitializeComponent();
-            this.Load += FMenua_Load;
         }
 
+        /// <summary>
+        /// Erabiltzailearen rolaren arabera menuko aukera batzuk desgaitzen ditu.
+        /// Mintegiburuak ez du administrazio-atalerako sarbiderik; irakasleak ez du aldaketa-aukerarik.
+        /// </summary>
         private void EzarriRolEskubideak()
         {
             switch (Saioa.Rola)
@@ -32,6 +41,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Datu-basetik uneko erabiltzailearen izena, rola eta mintegia kargatzen ditu eta pantailan erakusten ditu.
+        /// </summary>
         private void KargatuErabiltzaileaDatuak()
         {
             try
@@ -64,9 +76,12 @@ namespace Erronka_Interfazak
             }
         }
 
-        // ── Bordes redondeados ────────────────────────────────────────────────
-
-        private void FMenua_Load(object? sender, EventArgs e)
+        /// <summary>
+        /// Formularioa kargatzean erabiltzailearen datuak, rol-eskubideak eta ertz biribilak ezartzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
+        private void FMenua_Load_1(object? sender, EventArgs e)
         {
             KargatuErabiltzaileaDatuak();
             EzarriRolEskubideak();
@@ -84,6 +99,11 @@ namespace Erronka_Interfazak
                               Color.FromArgb(120, 190, 255));
         }
 
+        /// <summary>
+        /// Kontrol bati ertz biribila ezartzen dio GraphicsPath baten bidez.
+        /// </summary>
+        /// <param name="ctrl">Ertz biribila jaso behar duen kontrola.</param>
+        /// <param name="erradio">Ertzaren erradioa pikseletan.</param>
         private static void EzarriErtzBiribila(Control ctrl, int erradio)
         {
             int r = erradio * 2;
@@ -96,6 +116,14 @@ namespace Erronka_Interfazak
             ctrl.Region = new Region(path);
         }
 
+        /// <summary>
+        /// Panel baten ertz biribilaren marra marrazten du kolore jakin batekin.
+        /// </summary>
+        /// <param name="g">Marrazketa egiteko Graphics objektua.</param>
+        /// <param name="w">Panelaren zabalera pikseletan.</param>
+        /// <param name="h">Panelaren altuera pikseletan.</param>
+        /// <param name="erradio">Ertzaren erradioa pikseletan.</param>
+        /// <param name="kolorea">Marraztuko den ertzaren kolorea.</param>
         private static void MarraztuErtza(Graphics g, int w, int h, int erradio, Color kolorea)
         {
             g.SmoothingMode = SmoothingMode.AntiAlias;
@@ -110,8 +138,11 @@ namespace Erronka_Interfazak
             g.DrawPath(pen, path);
         }
 
-        // ── Gertaerak ─────────────────────────────────────────────────────────
-
+        /// <summary>
+        /// Sarrerara Joan menua sakatzean menuaren saio-hasierako formulariora itzultzen da.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void irtenSarreraraToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FSarrera fsarrera = new FSarrera();
@@ -119,6 +150,11 @@ namespace Erronka_Interfazak
             this.Close();
         }
 
+        /// <summary>
+        /// Irten Inbentariotik menua sakatzean aplikazioa erabat ixten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void irtenInbentariotikToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
@@ -139,6 +175,10 @@ namespace Erronka_Interfazak
             AbrirFormEnPanel(new FAldatu());
         }
 
+        /// <summary>
+        /// Emandako formularioa menu-panelean sartzen du eta erakusten du.
+        /// </summary>
+        /// <param name="f">Panelean erakutsi beharreko formularioa.</param>
         private void AbrirFormEnPanel(Form f)
         {
             panmenua.Controls.Clear();
@@ -148,6 +188,9 @@ namespace Erronka_Interfazak
             f.Show();
         }
 
+        /// <summary>
+        /// Menu nagusiaren barra laterala eta fondo-irudia birgaituz pantaila hasierako egoerara itzultzen du.
+        /// </summary>
         public void MostrarMenua()
         {
             panmenua.Controls.Clear();

@@ -4,11 +4,20 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Gailua aldatzeko formularioa. ID bidez gailua bilatzen du eta bere datuak eguneratzeko aukera ematen du.
+    /// </summary>
     public partial class FAldatu : Form
     {
+        /// <summary>Uneko bilatutako gailua, aldaketarako.</summary>
         private Gailua? _gailua = null;
+
+        /// <summary>Bilatutako gailuaren mintegiaren identifikatzailea.</summary>
         private int _idMintegia = 0;
 
+        /// <summary>
+        /// FAldatu formularioa hasieratzen du, gertaerak lotzen ditu eta formularioa kargatzen du.
+        /// </summary>
         public FAldatu()
         {
             InitializeComponent();
@@ -26,6 +35,10 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Mintegien zerrenda kargatzen du rolaren arabera: administratzaileak combo-box bat ikusten du,
+        /// mintegiburuak bere mintegiaren izena soilik, eta irakasleak ezer ez.
+        /// </summary>
         private void KargatuMintegia()
         {
             try
@@ -70,6 +83,9 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Aldaketa-eremu guztiak desgaitzen ditu bilaketa bat egin arte.
+        /// </summary>
         private void DesGaituDena()
         {
             txtMarka.Enabled = false;
@@ -85,6 +101,9 @@ namespace Erronka_Interfazak
             panInprimagailua.Visible = false;
         }
 
+        /// <summary>
+        /// Gailua aurkitu ondoren aldaketa-eremuak gaitzen ditu.
+        /// </summary>
         private void GaituDatuak()
         {
             txtMarka.Enabled = true;
@@ -97,6 +116,9 @@ namespace Erronka_Interfazak
             butaldatu.Enabled = true;
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -109,6 +131,11 @@ namespace Erronka_Interfazak
             lblaldatu.Top = panDatuak.Top - lblaldatu.Height - 20;
         }
 
+        /// <summary>
+        /// Bilatu botoia sakatzean ID bidez gailua datu-basetik bilatu eta formularioan kargatzen du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butBilatu_Click(object sender, EventArgs e)
         {
             if (!int.TryParse(txtId.Text.Trim(), out int id))
@@ -219,6 +246,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Aldatu botoia sakatzean eremuak baliozkotzen ditu eta gailuaren datuak datu-basean eguneratzen ditu.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butaldatu_Click(object sender, EventArgs e)
         {
             if (_gailua == null) return;
@@ -332,6 +364,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Atzera botoia sakatzean formularioa ixten du.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butatzera_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -355,6 +392,11 @@ namespace Erronka_Interfazak
             {
                 if (f is FMenua menu) { menu.MostrarMenua(); return; }
             }
+        }
+
+        private void butaldatu_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,8 +4,15 @@ using MySql.Data.MySqlClient;
 
 namespace Erronka_Interfazak
 {
+    /// <summary>
+    /// Langilea gehitzeko formularioa. Langile berri bat datu-basean txertatzeko aukera ematen du,
+    /// emailaren eta mintegiburuaren bikoiztasuna egiaztatuz.
+    /// </summary>
     public partial class FLangileaGehitu : Form
     {
+        /// <summary>
+        /// FLangileaGehitu formularioa hasieratzen du eta karga-gertaerak lotzen ditu.
+        /// </summary>
         public FLangileaGehitu()
         {
             InitializeComponent();
@@ -18,6 +25,9 @@ namespace Erronka_Interfazak
             };
         }
 
+        /// <summary>
+        /// Datu-panela eta izenburua panelaren erdian kokatzen ditu tamaina aldatzean.
+        /// </summary>
         private void ErdiratuKontrolak()
         {
             int w = panela.ClientSize.Width;
@@ -30,6 +40,9 @@ namespace Erronka_Interfazak
             lblTitulua.Top = panDatuak.Top - lblTitulua.Height - 20;
         }
 
+        /// <summary>
+        /// Datu-basetik mintegiak kargatzen ditu combo-box-erako.
+        /// </summary>
         private void KargatuMintegiak()
         {
             try
@@ -57,6 +70,12 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Gehitu botoia sakatzean eremuak baliozkotzen ditu, bikoizketak egiaztatzen ditu eta langilea datu-basean txertatzen du.
+        /// Pasahitz lehenetsia "123" da, lehen sarreran aldatzeko behartuko duena.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butGehitu_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtIzena.Text) ||
@@ -134,6 +153,11 @@ namespace Erronka_Interfazak
             }
         }
 
+        /// <summary>
+        /// Atzera botoia sakatzean menu nagusira itzultzen da.
+        /// </summary>
+        /// <param name="sender">Gertaeraren iturria.</param>
+        /// <param name="e">Gertaeraren argumentuak.</param>
         private void butAtzera_Click(object sender, EventArgs e)
         {
             foreach (Form f in Application.OpenForms)

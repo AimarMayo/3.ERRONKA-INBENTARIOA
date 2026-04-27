@@ -53,9 +53,9 @@ namespace Erronka_Interfazak
             panOrdenagailua.SuspendLayout();
             panInprimagailua.SuspendLayout();
             SuspendLayout();
-            //
+            // 
             // panela
-            //
+            // 
             panela.BackColor = Color.White;
             panela.Controls.Add(lblaldatu);
             panela.Controls.Add(panDatuak);
@@ -64,9 +64,9 @@ namespace Erronka_Interfazak
             panela.Name = "panela";
             panela.Size = new Size(1317, 772);
             panela.TabIndex = 0;
-            //
+            // 
             // lblaldatu
-            //
+            // 
             lblaldatu.AutoSize = true;
             lblaldatu.BackColor = SystemColors.Highlight;
             lblaldatu.Font = new Font("Segoe UI", 19.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -76,9 +76,9 @@ namespace Erronka_Interfazak
             lblaldatu.Size = new Size(275, 45);
             lblaldatu.TabIndex = 0;
             lblaldatu.Text = "GAILUA ALDATU";
-            //
+            // 
             // panDatuak
-            //
+            // 
             panDatuak.BackColor = SystemColors.Highlight;
             panDatuak.BorderStyle = BorderStyle.FixedSingle;
             panDatuak.Controls.Add(lblId);
@@ -104,9 +104,9 @@ namespace Erronka_Interfazak
             panDatuak.Name = "panDatuak";
             panDatuak.Size = new Size(580, 535);
             panDatuak.TabIndex = 1;
-            //
+            // 
             // lblId
-            //
+            // 
             lblId.AutoSize = true;
             lblId.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblId.ForeColor = Color.Black;
@@ -115,17 +115,17 @@ namespace Erronka_Interfazak
             lblId.Size = new Size(34, 25);
             lblId.TabIndex = 0;
             lblId.Text = "ID:";
-            //
+            // 
             // txtId
-            //
+            // 
             txtId.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtId.Location = new Point(180, 10);
             txtId.Name = "txtId";
             txtId.Size = new Size(240, 31);
             txtId.TabIndex = 1;
-            //
+            // 
             // butBilatu
-            //
+            // 
             butBilatu.BackColor = Color.White;
             butBilatu.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             butBilatu.ForeColor = SystemColors.Highlight;
@@ -135,9 +135,9 @@ namespace Erronka_Interfazak
             butBilatu.TabIndex = 2;
             butBilatu.Text = "BILATU";
             butBilatu.UseVisualStyleBackColor = false;
-            //
+            // 
             // lblMarka
-            //
+            // 
             lblMarka.AutoSize = true;
             lblMarka.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMarka.ForeColor = Color.Black;
@@ -146,17 +146,17 @@ namespace Erronka_Interfazak
             lblMarka.Size = new Size(65, 25);
             lblMarka.TabIndex = 3;
             lblMarka.Text = "Marka:";
-            //
+            // 
             // txtMarka
-            //
+            // 
             txtMarka.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtMarka.Location = new Point(180, 75);
             txtMarka.Name = "txtMarka";
             txtMarka.Size = new Size(375, 31);
             txtMarka.TabIndex = 4;
-            //
+            // 
             // lblKokalekua
-            //
+            // 
             lblKokalekua.AutoSize = true;
             lblKokalekua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblKokalekua.ForeColor = Color.Black;
@@ -165,17 +165,17 @@ namespace Erronka_Interfazak
             lblKokalekua.Size = new Size(96, 25);
             lblKokalekua.TabIndex = 5;
             lblKokalekua.Text = "Kokalekua:";
-            //
+            // 
             // txtKokalekua
-            //
+            // 
             txtKokalekua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtKokalekua.Location = new Point(180, 120);
             txtKokalekua.Name = "txtKokalekua";
             txtKokalekua.Size = new Size(375, 31);
             txtKokalekua.TabIndex = 6;
-            //
+            // 
             // lblErosteData
-            //
+            // 
             lblErosteData.AutoSize = true;
             lblErosteData.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblErosteData.ForeColor = Color.Black;
@@ -184,18 +184,18 @@ namespace Erronka_Interfazak
             lblErosteData.Size = new Size(107, 25);
             lblErosteData.TabIndex = 7;
             lblErosteData.Text = "Eroste Data:";
-            //
+            // 
             // dtpErosteData
-            //
+            // 
             dtpErosteData.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             dtpErosteData.Format = DateTimePickerFormat.Short;
             dtpErosteData.Location = new Point(180, 165);
             dtpErosteData.Name = "dtpErosteData";
             dtpErosteData.Size = new Size(375, 31);
             dtpErosteData.TabIndex = 8;
-            //
+            // 
             // lblMintegia
-            //
+            // 
             lblMintegia.AutoSize = true;
             lblMintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblMintegia.ForeColor = Color.Black;
@@ -204,9 +204,9 @@ namespace Erronka_Interfazak
             lblMintegia.Size = new Size(85, 25);
             lblMintegia.TabIndex = 14;
             lblMintegia.Text = "Mintegia:";
-            //
+            // 
             // lblMintegiaBalio
-            //
+            // 
             lblMintegiaBalio.AutoSize = true;
             lblMintegiaBalio.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblMintegiaBalio.ForeColor = Color.White;
@@ -214,9 +214,9 @@ namespace Erronka_Interfazak
             lblMintegiaBalio.Name = "lblMintegiaBalio";
             lblMintegiaBalio.Size = new Size(0, 25);
             lblMintegiaBalio.TabIndex = 15;
-            //
+            // 
             // cmbMintegia
-            //
+            // 
             cmbMintegia.BackColor = Color.White;
             cmbMintegia.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbMintegia.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -225,9 +225,9 @@ namespace Erronka_Interfazak
             cmbMintegia.Size = new Size(375, 33);
             cmbMintegia.TabIndex = 16;
             cmbMintegia.Visible = false;
-            //
+            // 
             // lblGailuMota
-            //
+            // 
             lblGailuMota.AutoSize = true;
             lblGailuMota.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblGailuMota.ForeColor = Color.Black;
@@ -236,9 +236,9 @@ namespace Erronka_Interfazak
             lblGailuMota.Size = new Size(102, 25);
             lblGailuMota.TabIndex = 9;
             lblGailuMota.Text = "Gailu Mota:";
-            //
+            // 
             // rbOrdenagailua
-            //
+            // 
             rbOrdenagailua.AutoSize = true;
             rbOrdenagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbOrdenagailua.ForeColor = Color.Black;
@@ -249,9 +249,9 @@ namespace Erronka_Interfazak
             rbOrdenagailua.Text = "Ordenagailua";
             rbOrdenagailua.UseVisualStyleBackColor = true;
             rbOrdenagailua.CheckedChanged += rbOrdenagailua_CheckedChanged;
-            //
+            // 
             // rbInprimagailua
-            //
+            // 
             rbInprimagailua.AutoSize = true;
             rbInprimagailua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbInprimagailua.ForeColor = Color.Black;
@@ -262,9 +262,9 @@ namespace Erronka_Interfazak
             rbInprimagailua.Text = "Inprimagailua";
             rbInprimagailua.UseVisualStyleBackColor = true;
             rbInprimagailua.CheckedChanged += rbInprimagailua_CheckedChanged;
-            //
+            // 
             // panOrdenagailua
-            //
+            // 
             panOrdenagailua.BackColor = Color.White;
             panOrdenagailua.BorderStyle = BorderStyle.FixedSingle;
             panOrdenagailua.Controls.Add(lblRam);
@@ -278,9 +278,9 @@ namespace Erronka_Interfazak
             panOrdenagailua.Size = new Size(540, 140);
             panOrdenagailua.TabIndex = 12;
             panOrdenagailua.Visible = false;
-            //
+            // 
             // lblRam
-            //
+            // 
             lblRam.AutoSize = true;
             lblRam.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRam.ForeColor = Color.Black;
@@ -289,17 +289,17 @@ namespace Erronka_Interfazak
             lblRam.Size = new Size(55, 25);
             lblRam.TabIndex = 0;
             lblRam.Text = "RAM:";
-            //
+            // 
             // txtRam
-            //
+            // 
             txtRam.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRam.Location = new Point(130, 10);
             txtRam.Name = "txtRam";
             txtRam.Size = new Size(395, 31);
             txtRam.TabIndex = 1;
-            //
+            // 
             // lblRom
-            //
+            // 
             lblRom.AutoSize = true;
             lblRom.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblRom.ForeColor = Color.Black;
@@ -308,17 +308,17 @@ namespace Erronka_Interfazak
             lblRom.Size = new Size(57, 25);
             lblRom.TabIndex = 2;
             lblRom.Text = "ROM:";
-            //
+            // 
             // txtRom
-            //
+            // 
             txtRom.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtRom.Location = new Point(130, 50);
             txtRom.Name = "txtRom";
             txtRom.Size = new Size(395, 31);
             txtRom.TabIndex = 3;
-            //
+            // 
             // lblCpu
-            //
+            // 
             lblCpu.AutoSize = true;
             lblCpu.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblCpu.ForeColor = Color.Black;
@@ -327,17 +327,17 @@ namespace Erronka_Interfazak
             lblCpu.Size = new Size(49, 25);
             lblCpu.TabIndex = 4;
             lblCpu.Text = "CPU:";
-            //
+            // 
             // txtCpu
-            //
+            // 
             txtCpu.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtCpu.Location = new Point(130, 90);
             txtCpu.Name = "txtCpu";
             txtCpu.Size = new Size(395, 31);
             txtCpu.TabIndex = 5;
-            //
+            // 
             // panInprimagailua
-            //
+            // 
             panInprimagailua.BackColor = Color.White;
             panInprimagailua.BorderStyle = BorderStyle.FixedSingle;
             panInprimagailua.Controls.Add(lblKoloretakua);
@@ -348,9 +348,9 @@ namespace Erronka_Interfazak
             panInprimagailua.Size = new Size(540, 65);
             panInprimagailua.TabIndex = 13;
             panInprimagailua.Visible = false;
-            //
+            // 
             // lblKoloretakua
-            //
+            // 
             lblKoloretakua.AutoSize = true;
             lblKoloretakua.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblKoloretakua.Location = new Point(10, 18);
@@ -358,9 +358,9 @@ namespace Erronka_Interfazak
             lblKoloretakua.Size = new Size(114, 25);
             lblKoloretakua.TabIndex = 0;
             lblKoloretakua.Text = "Koloretakua?";
-            //
+            // 
             // rbKoloretakuaBai
-            //
+            // 
             rbKoloretakuaBai.AutoSize = true;
             rbKoloretakuaBai.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbKoloretakuaBai.Location = new Point(155, 15);
@@ -369,9 +369,9 @@ namespace Erronka_Interfazak
             rbKoloretakuaBai.TabIndex = 1;
             rbKoloretakuaBai.Text = "Bai";
             rbKoloretakuaBai.UseVisualStyleBackColor = true;
-            //
+            // 
             // rbKoloretakuaEz
-            //
+            // 
             rbKoloretakuaEz.AutoSize = true;
             rbKoloretakuaEz.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
             rbKoloretakuaEz.Location = new Point(240, 15);
@@ -380,9 +380,9 @@ namespace Erronka_Interfazak
             rbKoloretakuaEz.TabIndex = 2;
             rbKoloretakuaEz.Text = "Ez";
             rbKoloretakuaEz.UseVisualStyleBackColor = true;
-            //
+            // 
             // butaldatu
-            //
+            // 
             butaldatu.BackColor = Color.White;
             butaldatu.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             butaldatu.ForeColor = SystemColors.Highlight;
@@ -392,9 +392,10 @@ namespace Erronka_Interfazak
             butaldatu.TabIndex = 20;
             butaldatu.Text = "ALDATU";
             butaldatu.UseVisualStyleBackColor = false;
-            //
+            butaldatu.Click += butaldatu_Click_1;
+            // 
             // butatzera
-            //
+            // 
             butatzera.BackColor = Color.White;
             butatzera.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             butatzera.ForeColor = SystemColors.Highlight;
@@ -405,9 +406,9 @@ namespace Erronka_Interfazak
             butatzera.Text = "ATZERA";
             butatzera.UseVisualStyleBackColor = false;
             butatzera.Click += butatzera_Click_1;
-            //
+            // 
             // FAldatu
-            //
+            // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaption;
