@@ -9,7 +9,6 @@
 </head>
 <body class="bg-light">
 
-  
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">Inbentario Digitala</a>
@@ -29,7 +28,6 @@
     </div>
   </nav>
 
- 
   <section class="py-5 text-center bg-white">
     <div class="container">
       <h1 class="fw-bold">Administrariaren gunea</h1>
@@ -39,12 +37,10 @@
     </div>
   </section>
 
-  
   <section class="py-5">
     <div class="container">
       <div class="row g-4">
 
-       
         <div class="col-md-6 col-lg-3">
           <div class="card h-100 shadow-sm text-center">
             <div class="card-body">
@@ -53,13 +49,12 @@
                 Deskargatu aplikazioa zure ordenagailuan instalatzeko.
               </p>
               <a href="Deskargak/ErronkaInterfazak.zip" download class="btn btn-primary">
-  Deskargatu
-</a>
+                Deskargatu
+              </a>
             </div>
           </div>
         </div>
 
-       
         <div class="col-md-6 col-lg-3">
           <div class="card h-100 shadow-sm text-center">
             <div class="card-body">
@@ -72,7 +67,6 @@
           </div>
         </div>
 
-        
         <div class="col-md-6 col-lg-3">
           <div class="card h-100 shadow-sm text-center">
             <div class="card-body">
@@ -80,14 +74,13 @@
               <p class="card-text">
                 Aplikazioa nola instalatu azaltzen duen gida azkarra.
               </p>
-             <a href="Deskargak/INSTALAZIO GIDA.pdf" target="_blank" class="btn btn-primary">
-  Ikusi
-</a>
+              <a href="Deskargak/INSTALAZIO GIDA.pdf" target="_blank" class="btn btn-primary">
+                Ikusi
+              </a>
             </div>
           </div>
         </div>
 
-      
         <div class="col-md-6 col-lg-3">
           <div class="card h-100 shadow-sm text-center">
             <div class="card-body">
@@ -106,7 +99,7 @@
     </div>
   </section>
 
-
+  <!-- MODAL CON VIDEO -->
   <div class="modal fade" id="bideoModal" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -118,10 +111,10 @@
 
         <div class="modal-body">
           <div class="ratio ratio-16x9">
-            <iframe 
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-              allowfullscreen>
-            </iframe>
+            <video controls class="w-100 h-100">
+              <source src="Deskargak/VideoTutorialInventory.mp4" type="video/mp4">
+              Zure nabigatzaileak ez du bideoa onartzen.
+            </video>
           </div>
         </div>
 
@@ -129,13 +122,22 @@
     </div>
   </div>
 
-
   <footer class="bg-primary text-white text-center py-3 mt-5">
     <p class="mb-0">© 2026 DatuTech - Hezkuntza proiektua</p>
   </footer>
 
- 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Script para parar el video al cerrar -->
+  <script>
+    const modal = document.getElementById('bideoModal');
+    const video = modal.querySelector('video');
+
+    modal.addEventListener('hidden.bs.modal', function () {
+      video.pause();
+      video.currentTime = 0;
+    });
+  </script>
 
 </body>
 </html>
