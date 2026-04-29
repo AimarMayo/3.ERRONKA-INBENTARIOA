@@ -1,0 +1,452 @@
+{
+  "source_base_path": "C:/Users/iniet/Desktop/3.ERRONKA-INBENTARIOA/Erronka Interfazak",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      }
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.DBKonexioa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.DBKonexioa.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.DBKonexioa",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.DBKonexioa.yml\" sourcestartlinenumber=\"1\">MySQL datu-basearekin konexioa kudeatzen duen klase estatikoa.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.Erabiltzailea.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.Erabiltzailea.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.Erabiltzailea",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.Erabiltzailea.yml\" sourcestartlinenumber=\"1\">Sistemako erabiltzaile baten eredua. Langileak eta administratzaileak biltzen ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FAldatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FAldatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FAldatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FAldatu.yml\" sourcestartlinenumber=\"1\">Gailua aldatzeko formularioa. ID bidez gailua bilatzen du eta bere datuak eguneratzeko aukera ematen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FEzabatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FEzabatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FEzabatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FEzabatu.yml\" sourcestartlinenumber=\"1\">Gailua ezabatzeko formularioa. ID bidez gailua bilatzen du, berrestea eskatzen du eta\nezabatutakoen zerrendara mugitzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FEzabatuakIkusi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FEzabatuakIkusi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FEzabatuakIkusi",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FEzabatuakIkusi.yml\" sourcestartlinenumber=\"1\">Ezabatutako gailuak ikusteko formularioa. Historiko gisa gordetako ezabatutako gailu guztiak erakusten ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FGehitu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FGehitu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FGehitu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FGehitu.yml\" sourcestartlinenumber=\"1\">Gailua gehitzeko formularioa. Ordenagailuak eta inprimagailuak datu-basean txertatzeko aukera ematen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FIkusi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FIkusi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FIkusi",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FIkusi.yml\" sourcestartlinenumber=\"1\">Gailuak ikusteko formularioa. Inbentarioko gailu guztiak DataGridView batean erakusten ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FInzidentziaEzabatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FInzidentziaEzabatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FInzidentziaEzabatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FInzidentziaEzabatu.yml\" sourcestartlinenumber=\"1\">Inzidentzia ezabatzeko formularioa. ID bidez inzidentzia bilatzen du, gailua ezabatutakoen zerrendara\nmugitzen du eta inzidentzia eta gailua datu-basetik ezabatzen ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FInzidentziak.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FInzidentziak.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FInzidentziak",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FInzidentziak.yml\" sourcestartlinenumber=\"1\">Inzidentziak ikusteko formularioa. Matxuratutako gailuen inzidentzia guztiak DataGridView batean erakusten ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FKonpondu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FKonpondu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FKonpondu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FKonpondu.yml\" sourcestartlinenumber=\"1\">Gailua matxuratuta markatzeko formularioa. ID bidez gailua bilatzen du, egoera 'matxuratuta' ezartzen du\neta inzidentzia berri bat sortzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FKonponduta.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FKonponduta.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FKonponduta",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FKonponduta.yml\" sourcestartlinenumber=\"1\">Gailua konponduta markatzeko formularioa. Inzidentzia ID bidez bilatzen du,\ngailuaren egoera 'erabilgarri' ezartzen du eta inzidentziaren konpontze-data gordetzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FLangileaAldatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FLangileaAldatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FLangileaAldatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FLangileaAldatu.yml\" sourcestartlinenumber=\"1\">Langilearen datuak aldatzeko formularioa. ID bidez langilea bilatzen du eta bere datuak eguneratzeko aukera ematen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FLangileaEzabatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FLangileaEzabatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FLangileaEzabatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FLangileaEzabatu.yml\" sourcestartlinenumber=\"1\">Langilea ezabatzeko formularioa. ID bidez langilea bilatzen du, berrestea eskatzen du eta datu-basetik ezabatzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FLangileaGehitu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FLangileaGehitu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FLangileaGehitu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FLangileaGehitu.yml\" sourcestartlinenumber=\"1\">Langilea gehitzeko formularioa. Langile berri bat datu-basean txertatzeko aukera ematen du,\nemailaren eta mintegiburuaren bikoiztasuna egiaztatuz.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FLangileakIkusi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FLangileakIkusi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FLangileakIkusi",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FLangileakIkusi.yml\" sourcestartlinenumber=\"1\">Langileak ikusteko formularioa. Sistemako langile guztiak DataGridView batean erakusten ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FMenua.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FMenua.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FMenua",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FMenua.yml\" sourcestartlinenumber=\"1\">Aplikazioaren menu nagusia. Erabiltzailearen rolen arabera menuko aukerak gaitzen edo desgaitzen ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FMintegiaEzabatu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FMintegiaEzabatu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FMintegiaEzabatu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FMintegiaEzabatu.yml\" sourcestartlinenumber=\"1\">Mintegia ezabatzeko formularioa. ID bidez mintegia bilatzen du eta berrestea eskatu ondoren datu-basetik ezabatzen du.\nMintegiak lotutako langileak edo gailuak baditu, ezabatzea blokeatzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FMintegiaGehitu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FMintegiaGehitu.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FMintegiaGehitu",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FMintegiaGehitu.yml\" sourcestartlinenumber=\"1\">Mintegia gehitzeko formularioa. Mintegi berri bat datu-basean txertatzeko aukera ematen du,\nizen bikoizketak egiaztatuz.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FMintegiaIkusi.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FMintegiaIkusi.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FMintegiaIkusi",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FMintegiaIkusi.yml\" sourcestartlinenumber=\"1\">Mintegiak ikusteko formularioa. Sistemako mintegi guztiak DataGridView batean erakusten ditu.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FPasahitza.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FPasahitza.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FPasahitza",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FPasahitza.yml\" sourcestartlinenumber=\"1\">Pasahitza aldatzeko formularioa. Lehen saioan &quot;123&quot; pasahitz lehenetsia erabiltzen denean automatikoki irekitzen da.\nGutxienez 8 karaktereko pasahitz berria eskatzen du.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.FSarrera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.FSarrera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.FSarrera",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.FSarrera.yml\" sourcestartlinenumber=\"1\">Saioa hasteko formularioa. Erabiltzaileak emaila eta pasahitza sartuz sisteman sartzen dira.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.Gailua.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.Gailua.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.Gailua",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.Gailua.yml\" sourcestartlinenumber=\"1\">Inbentarioko gailu baten oinarrizko eredua. Ordenagailuak eta inprimagailuak klase honetatik heredatzen dira.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.Galdera.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.Galdera.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.Galdera",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.Galdera.yml\" sourcestartlinenumber=\"1\">Erabiltzaileari baieztapen-galdera egiteko elkarrizketa-koadro pertsonalizatua sortzeko klase estatikoa.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.Mintegia.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.Mintegia.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.Mintegia",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.Mintegia.yml\" sourcestartlinenumber=\"1\">Lantegi edo mintegiaren eredua. Gailuak eta langileak mintegiarekin lotzen dira.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.Saioa.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.Saioa.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak.Saioa",
+      "Summary": "<p sourcefile=\"api/Erronka_Interfazak.Saioa.yml\" sourcestartlinenumber=\"1\">Uneko erabiltzailearen saioa-datuak gordetzen dituen klase estatikoa.\nSaioa hasi ondoren, formulario guztiek klase honetatik irakurtzen dute erabiltzailearen informazioa.</p>\n"
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Erronka_Interfazak.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Erronka_Interfazak.html"
+        }
+      },
+      "version": "",
+      "Uid": null,
+      "IsMRef": true,
+      "Title": "Erronka_Interfazak",
+      "Summary": null
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html"
+        },
+        ".json": {
+          "relative_path": "api/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html"
+        },
+        ".json": {
+          "relative_path": "docs/toc.json"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html"
+        }
+      },
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html"
+        },
+        ".json": {
+          "relative_path": "toc.json"
+        }
+      },
+      "version": ""
+    }
+  ],
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

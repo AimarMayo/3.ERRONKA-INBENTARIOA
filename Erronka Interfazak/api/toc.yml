@@ -1,0 +1,82 @@
+### YamlMime:TableOfContent
+items:
+- uid: Erronka_Interfazak
+  name: Erronka_Interfazak
+  type: Namespace
+  items:
+  - uid: Erronka_Interfazak.DBKonexioa
+    name: DBKonexioa
+    type: Class
+  - uid: Erronka_Interfazak.Erabiltzailea
+    name: Erabiltzailea
+    type: Class
+  - uid: Erronka_Interfazak.FAldatu
+    name: FAldatu
+    type: Class
+  - uid: Erronka_Interfazak.FEzabatu
+    name: FEzabatu
+    type: Class
+  - uid: Erronka_Interfazak.FEzabatuakIkusi
+    name: FEzabatuakIkusi
+    type: Class
+  - uid: Erronka_Interfazak.FGehitu
+    name: FGehitu
+    type: Class
+  - uid: Erronka_Interfazak.FIkusi
+    name: FIkusi
+    type: Class
+  - uid: Erronka_Interfazak.FInzidentziaEzabatu
+    name: FInzidentziaEzabatu
+    type: Class
+  - uid: Erronka_Interfazak.FInzidentziak
+    name: FInzidentziak
+    type: Class
+  - uid: Erronka_Interfazak.FKonpondu
+    name: FKonpondu
+    type: Class
+  - uid: Erronka_Interfazak.FKonponduta
+    name: FKonponduta
+    type: Class
+  - uid: Erronka_Interfazak.FLangileaAldatu
+    name: FLangileaAldatu
+    type: Class
+  - uid: Erronka_Interfazak.FLangileaEzabatu
+    name: FLangileaEzabatu
+    type: Class
+  - uid: Erronka_Interfazak.FLangileaGehitu
+    name: FLangileaGehitu
+    type: Class
+  - uid: Erronka_Interfazak.FLangileakIkusi
+    name: FLangileakIkusi
+    type: Class
+  - uid: Erronka_Interfazak.FMenua
+    name: FMenua
+    type: Class
+  - uid: Erronka_Interfazak.FMintegiaEzabatu
+    name: FMintegiaEzabatu
+    type: Class
+  - uid: Erronka_Interfazak.FMintegiaGehitu
+    name: FMintegiaGehitu
+    type: Class
+  - uid: Erronka_Interfazak.FMintegiaIkusi
+    name: FMintegiaIkusi
+    type: Class
+  - uid: Erronka_Interfazak.FPasahitza
+    name: FPasahitza
+    type: Class
+  - uid: Erronka_Interfazak.FSarrera
+    name: FSarrera
+    type: Class
+  - uid: Erronka_Interfazak.Gailua
+    name: Gailua
+    type: Class
+  - uid: Erronka_Interfazak.Galdera
+    name: Galdera
+    type: Class
+  - uid: Erronka_Interfazak.Mintegia
+    name: Mintegia
+    type: Class
+  - uid: Erronka_Interfazak.Saioa
+    name: Saioa
+    type: Class
+memberLayout: SamePage
